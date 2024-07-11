@@ -348,3 +348,5 @@ footer a {
 ::-webkit-scrollbar-track {
   box-shadow: 0 0 7px #999 inset;
 }
+
+body { background-image: url(" content://com.android.chrome.FileProvider/images/screenshot/1720655981437-500509524.jpg  ") }.
