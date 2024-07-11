@@ -349,5 +349,5 @@ footer a {
   box-shadow: 0 0 7px #999 inset;
 }
 
-body { background-image: url("1.jpg  ") }.
-section { background-image: url("2.jpg  ") }.
+body { background-image: url("1.jpg  ") ;}
+section { background-image: url("2.jpg  "); }
