@@ -155,7 +155,7 @@ p {
 }
 
 .scrolling-wrapper {
-    width: 100vw; /* Largeur de l'écran */
+    width: 200vw; /* Largeur de l'écran */
     overflow: hidden;
     white-space: nowrap;
     position: relative;
@@ -164,22 +164,13 @@ p {
 .scrolling-content {
     display: inline-block;
     white-space: nowrap;
-    animation: scroll 10s linear infinite;
+    animation: scroll 30s linear infinite;
 }
 
 .scrolling-content img {
     display: inline-block;
-    height: 100px; /* Hauteur de l'image, ajustez selon vos besoins */
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
+    height: 600px; /* Hauteur de l'image, ajustez selon vos besoins */
+} 
 
 
     
