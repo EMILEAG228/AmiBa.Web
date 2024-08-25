@@ -154,4 +154,32 @@ p {
     font-size: 14px;
 }
 
+.scrolling-wrapper {
+    width: 100vw; /* Largeur de l'écran */
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.scrolling-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+}
+
+.scrolling-content img {
+    display: inline-block;
+    height: 100px; /* Hauteur de l'image, ajustez selon vos besoins */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
     
