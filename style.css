@@ -167,10 +167,3 @@ p {
     animation: scroll 30s linear infinite;
 }
 
-.scrolling-content img {
-    display: inline-block;
-    height: 600px; /* Hauteur de l'image, ajustez selon vos besoins */
-} 
-
-
-    
