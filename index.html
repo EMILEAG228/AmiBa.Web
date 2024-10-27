@@ -73,59 +73,7 @@
       </div>
       <br>  <br><br>  
 
-	    <!-- Footer avec Copyright -->
-<footer style="background-color: brown;">
-     <style>
-    /* Styles pour le pied de page */
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      font-family: Arial, sans-serif;
-    }
-  </style>
-</head>
-<body>
 
-  <!-- Pied de page avec compteur de visites -->
-  <footer>
-    <p id="compteur">Nombre de visites : 0</p>
-  </footer>
-
-  <script>
-    // Fonction pour mettre à jour et afficher le compteur de visites
-    function mettreAJourCompteur() {
-      let nombreDeVisites = localStorage.getItem('nombreDeVisites');
-        if (!nombreDeVisites) {
-        nombreDeVisites = 0;
-      }
-
-      nombreDeVisites++;
-      localStorage.setItem('nombreDeVisites', nombreDeVisites);
-
-      document.getElementById('compteur').textContent = `Nombre de visites : ${nombreDeVisites}`;
-    }
-
-    // Appelle la fonction lors du chargement de la page
-    mettreAJourCompteur();
-  </script>  
-  
-</footer>
-      <p class="footer"> <h3>&copy;2024 AmiBa Groupe. Tous droits réservés</h3></p>
-	    
-      <br>
-
-      
-     
-      
-        
-
-      
-   
    
   </body>
   </html>
