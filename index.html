@@ -74,6 +74,120 @@
       <br>  <br><br>  
 
 
+
+
+
+
+<div class="content">
+    <h1>Bienvenue sur notre page web</h1>
+    <p>Explorez nos vidéos et actualités ci-dessous.</p>
+</div>
+
+<div class="footer">
+    <div class="video-publish">
+        <h2>Publier une vidéo</h2>
+        <form id="videoForm">
+            <input type="url" id="videoURL" placeholder="Entrez l'URL de la vidéo (YouTube)" required>
+            <button type="submit">Afficher la vidéo</button>
+        </form>
+        <div class="video-display" id="videoDisplay"></div>
+    </div>
+
+    <div class="news">
+        <h2>Actualités</h2>
+        <img src="https://via.placeholder.com/300x200" alt="Actualité 1">
+        <img src="https://via.placeholder.com/300x200" alt="Actualité 2">
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: space-between;
+    }
+
+    .content {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .footer {
+        background-color: #f4f4f4;
+        border-top: 1px solid #ccc;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .video-publish, .news {
+        flex: 1;
+        margin: 0 10px;
+    }
+
+    .video-publish form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .video-publish input, .video-publish button {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .video-display iframe {
+        width: 100%;
+        height: 200px;
+    }
+
+    .news {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<script>
+    document.getElementById('videoForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const videoURL = document.getElementById('videoURL').value;
+        const videoDisplay = document.getElementById('videoDisplay');
+
+        // Extraction de l'ID de la vidéo YouTube
+        const videoID = videoURL.split('v=')[1]?.split('&')[0];
+        if (videoID) {
+            videoDisplay.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoID}" frameborder="0" allowfullscreen></iframe>`;
+        } else {
+            alert('Veuillez entrer une URL valide de vidéo YouTube.');
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+	    
+
+
    
   </body>
   </html>
