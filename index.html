@@ -177,7 +177,69 @@
 </script>
 
 
+<div class="gallery-container">
+    <div class="gallery-title">Galerie Amiba Groupe</div>
+    <div class="gallery-wrapper" id="gallery">
+        <img src="AmiBa.jpg" alt="Image 1">
+        <img src="https://via.placeholder.com/150x100?text=Image+2" alt="Image 2">
+        <img src="https://via.placeholder.com/150x100?text=Image+3" alt="Image 3">
+        <img src="https://via.placeholder.com/150x100?text=Image+4" alt="Image 4">
+        <img src="https://via.placeholder.com/150x100?text=Image+5" alt="Image 5">
+    </div>
+</div>
 
+<style>
+    .gallery-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background-color: #f4f4f4;
+        padding: 10px 0;
+    }
+
+    .gallery-title {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .gallery-wrapper {
+        display: flex;
+        width: max-content;
+        animation: scroll-left 20s linear infinite;
+    }
+
+    .gallery-wrapper img {
+        width: 150px;
+        height: 100px;
+        margin: 0 10px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    @keyframes scroll-left {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+<script>
+    const galleryWrapper = document.querySelector('.gallery-wrapper');
+    let galleryWidth = galleryWrapper.scrollWidth;
+
+    window.addEventListener('resize', () => {
+        galleryWidth = galleryWrapper.scrollWidth;
+        galleryWrapper.style.animation = 'none';
+        setTimeout(() => {
+            galleryWrapper.style.animation = 'scroll-left 20s linear infinite';
+        }, 50);
+    });
+</script>
+	    
 
 
 
