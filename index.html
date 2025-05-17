@@ -1,306 +1,232 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>AmiBa Groupe</title>
-  <link rel="stylesheet" href="style.css">
- <link rel="shortcut icon" type="image/jpg" href="logo.png">	
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<DOCTYPE html>
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
-<script src="https://use.fontawesome.com/e927d2da26.js"></script>
-
-<html>
-<head>
-  <title> AmiBa Store</title>  
-  </head>
-  <body class="body body-image">
-   <ul>
-  <li><a href="#home">Home</a></li>
-  <li><a href=" https://chat.whatsapp.com/K7HpwBmncGaBH2F0BnE167">Join Team</a></li> 
-  <li><a href="https://emileag228.github.io/AmiBa-Informactic/"> AmiBa-Informatic </a></li>
-  <li><a href="http://amiba.onlinewebshop.net/"> AmiBa MarketPlace</a></li>
- <li><a href="https://emileag228.github.io/liveFootTv/">Live Foot Tv</a></li>
-  <li><a href="  https://emileag228.github.io/AmiBa-Informactic/">Download</a></li>
-  <li style="float:right"><a class="active" href=" https://hey.link/Sh1yE">Contact</a></li>
-</ul>
-    <div id ="data">
-    </div>
-   
-    <div class="home"><a name="home" id="#home"></a>
-      <h2>   BIENVENU SUR LE SITE OFFICIEL DU GROUPE AMIBA
-        <br>
-<br>
-
-
-        AmiBa est une application développer en 2024 
-        <br>
-        <br>
-      
-      </h2>
-    </div>
-    <div class="about-me h2" id="#about_me"><a name="about_me" id="#about_me"></a> 
-      <p><br>
-      
-          <br>
-          L'application AmiBa en globe plus de 10 applications. L'objectif de l'application est d'avoir beaucoup d'applications dans une seule application, cela permettra de libérer de l'espace stockage... Pour des raisons de sécurité l'application n'est pas disponible à télécharger sur Play store...
-          <br>
-	      <img class="img-thumbnail" src="logo.png" width="276" height="304">
-          <br>
-      </p>
-        </div>
-    <div class="container-fluid projects"><a id="#projects" name="projects"></a>
-	    <br>
-
-        <br>
-      <h2><br>Nos Services</h2>
-      
-      <br>
-    <div class="container-fluid">
-    <div class="row">
-      <div class="project-columns">
-    <h3>CodePen Pour Vous aider à développer vos Site Web<h3>
-     <a href="     https://hey.link/Sh1yE" target="_blank"> <img class="img-thumbnail"src="open.jpg" width="304" height="236"></a>
-      
-      
-      <img class="img-thumbnail" src="réseau.jpg" width="304" height="236">
-      <h3>Service Électricité</h3>
-      <img class="img-thumbnail" src="electricien.jpg" width="304" height="236">
-      </div>
-      </div>
-      </div>
-      <br>  <br><br>  
-
-
-
-
-
-
-<div class="content">
-    <h1>Explorez nos vidéos et actualités ci-dessous</h1>
-    
-</div>
-
-<div class="footer">
-    <div class="video-publish">
-        <h2>Publier une vidéo</h2>
-        <form id="videoForm">
-            <input type="url" id="videoURL" placeholder="Entrez l'URL de la vidéo (YouTube)" required>
-            <button type="submit">Afficher la vidéo</button>
-        </form>
-        <div class="video-display" id="videoDisplay"></div>
-    </div>
-
-    <div class="news">
-        <h2>Actualités</h2>
-        <img src="logo.png" alt="Actualité 1">
-      //<img src="#" alt="Actualité 2">
-    </div>
-</div>
-
-<style>
+  <link rel="shortcut icon" href="logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        justify-content: space-between;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      color: #333;
     }
 
-    .content {
-        flex: 1;
-        padding: 20px;
+    header {
+      background-color: #1e2a38;
+      color: white;
+      padding: 1em;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
     }
 
-    .footer {
-        background-color: #f4f4f4;
-        border-top: 1px solid #ccc;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .video-publish, .news {
-        flex: 1;
-        margin: 0 10px;
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #34495e;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .video-publish form {
-        display: flex;
-        flex-direction: column;
+    nav li {
+      display: inline;
     }
 
-    .video-publish input, .video-publish button {
-        margin-bottom: 10px;
-        padding: 10px;
-        font-size: 16px;
+    nav a {
+      display: block;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: white;
+      transition: background 0.3s;
     }
 
-    .video-display iframe {
-        width: 100%;
-        height: 200px;
+    nav a:hover {
+      background-color: #2c3e50;
     }
 
-    .news {
-        display: flex;
-        flex-direction: column;
+    .section {
+      padding: 2em;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
     }
 
-    .news img {
-        width: 100%;
-        max-height: 200px;
-        object-fit: cover;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-    }
-</style>
-
-<script>
-    document.getElementById('videoForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const videoURL = document.getElementById('videoURL').value;
-        const videoDisplay = document.getElementById('videoDisplay');
-
-        // Extraction de l'ID de la vidéo YouTube
-        const videoID = videoURL.split('v=')[1]?.split('&')[0];
-        if (videoID) {
-            videoDisplay.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoID}" frameborder="0" allowfullscreen></iframe>`;
-        } else {
-            alert('Veuillez entrer une URL valide de vidéo YouTube.');
-        }
-    });
-</script>
-
-
-<div class="gallery-container">
-    <div class="gallery-title">Galerie Amiba Groupe</div>
-    <div class="gallery-wrapper" id="gallery">
-        <img src="AmiBa.jpg" alt="Image 1">
-        <img src="logo.png" alt="Image 2">
-
-    </div>
-</div>
-
-<style>
-    .gallery-container {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        background-color: #f4f4f4;
-        padding: 20px 0;
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
-    .gallery-title {
-        text-align: center;
-        font-size: 34px;
-        margin-bottom: 20px;
+    .projects img,
+    .about img,
+    .gallery-wrapper img,
+    .announcement img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .projects img:hover {
+      transform: scale(1.05);
     }
 
     .gallery-wrapper {
-        display: flex;
-        width: max-content;
-        animation: scroll-left 20s linear infinite;
-    }
-
-    .gallery-wrapper img {
-        width: 180px;
-        height: 120px;
-        margin: 0 10px;
-        border-radius: 8px;
-        object-fit: cover;
+      display: flex;
+      gap: 10px;
+      animation: scroll-left 20s linear infinite;
     }
 
     @keyframes scroll-left {
-        from {
-            transform: translateX(100%);
-        }
-        to {
-            transform: translateX(-100%);
-        }
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
     }
-</style>
+
+    .video-form {
+      max-width: 500px;
+      margin: 2em auto;
+      text-align: center;
+    }
+
+    .video-form input, .video-form button {
+      padding: 10px;
+      margin: 5px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 500px;
+      height: 280px;
+      margin-top: 10px;
+    }
+
+    .announcement {
+      background: #f1f1f1;
+      padding: 2em;
+      margin: 2em auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .announcement h1 {
+      color: #2c3e50;
+    }
+
+    footer {
+      background-color: #1e2a38;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+
+      .gallery-wrapper {
+        animation: none;
+        overflow-x: auto;
+      }
+
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bienvenue sur le site officiel de AmiBa Groupe</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#home">Accueil</a></li>
+    <li><a href="https://chat.whatsapp.com/K7HpwBmncGaBH2F0BnE167">Rejoindre le Groupe</a></li>
+    <li><a href="https://emileag228.github.io/AmiBa-Informactic/">AmiBa-Informatic</a></li>
+    <li><a href="http://amiba.onlinewebshop.net/">Marketplace</a></li>
+    <li><a href="https://emileag228.github.io/liveFootTv/">Live Foot TV</a></li>
+    <li><a href="https://emileag228.github.io/AmiBa-Informactic/">Télécharger</a></li>
+    <li><a href="https://hey.link/Sh1yE">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="home" class="section">
+  <h2>AmiBa - Application 2024</h2>
+  <p>AmiBa est une application regroupant plus de 10 applications en une seule. Elle est conçue pour optimiser l’espace de stockage des téléphones.</p>
+  <img src="logo.png" alt="Logo AmiBa" width="200">
+</section>
+
+<section class="section about">
+  <h2>Nos Services</h2>
+  <div class="projects">
+    <img src="open.jpg" alt="CodePen">
+    <p>CodePen pour développer vos sites web</p>
+    <img src="réseau.jpg" alt="Réseau">
+    <p>Service Réseaux & Câblage</p>
+    <img src="electricien.jpg" alt="Électricité">
+    <p>Électricité & Domotique</p>
+  </div>
+</section>
+
+<section class="section video-form">
+  <h2>Publier une vidéo YouTube</h2>
+  <form id="videoForm">
+    <input type="url" id="videoURL" placeholder="URL de la vidéo YouTube" required>
+    <button type="submit">Afficher</button>
+  </form>
+  <div id="videoDisplay"></div>
+</section>
+
+<section class="section gallery">
+  <h2>Galerie AmiBa Groupe</h2>
+  <div class="gallery-wrapper">
+    <img src="AmiBa.jpg" alt="Galerie 1">
+    <img src="logo.png" alt="Galerie 2">
+  </div>
+</section>
+
+<section class="announcement">
+  <h1>Création de Boutique en Ligne</h1>
+  <p>Modernisez votre commerce en ligne avec un site Web personnalisé pour publier vos articles. Dites adieu aux groupes WhatsApp !</p>
+  <p><strong>Prix : 15 000 FCFA</strong></p>
+  <p><a href="https://hey.link/Sh1yE">Réserver maintenant</a></p>
+  <img src="MyPhoto12_23_2024_10_02_17_PM.png" alt="Boutique en ligne">
+</section>
+
+<footer>
+  <p>© 2025 AmiBa Groupe. Tous droits réservés.</p>
+</footer>
 
 <script>
-    const galleryWrapper = document.querySelector('.gallery-wrapper');
-    let galleryWidth = galleryWrapper.scrollWidth;
+  document.getElementById('videoForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const videoURL = document.getElementById('videoURL').value;
+    const videoID = videoURL.split('v=')[1]?.split('&')[0];
+    const display = document.getElementById('videoDisplay');
 
-    window.addEventListener('resize', () => {
-        galleryWidth = galleryWrapper.scrollWidth;
-        galleryWrapper.style.animation = 'none';
-        setTimeout(() => {
-            galleryWrapper.style.animation = 'scroll-left 20s linear infinite';
-        }, 50);
-    });
+    if (videoID) {
+      display.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoID}" frameborder="0" allowfullscreen></iframe>`;
+    } else {
+      alert("Veuillez entrer une URL valide de vidéo YouTube.");
+    }
+  });
 </script>
-<br><br><br><br>
 
-
-
-
-<div class="announcement">
-        
-       
-
-   
-<h1 class="title">Creation de Boutique en Ligne ( Ecommerce )</h1>
-        
-     
-<p class="description"><h3>
-Bonjour J’espère que tout le monde va bien.
-
-J’aimerais bien vous informer pour ceux qui sont dans le domaine de commerce précisément de vente en ligne, On aimerait vous aider à moderniser voter plan commercial
-
-Au lieu de Publier vos articles sur des statuts ou sur dans des groupes WhatsApp , nous allons vous aider à créer un site Web pour la publication de vos articles.
-
-Le faits d’envoyer vos articles dans les groupes et sur vos statuts déranges vos amis …
-
-Contact Nous maintenant pour vous créer un site Web de vente en Ligne … 
-
-
-
-
-Booking : https://hey.link/Sh1yE
-         
-
-    
-</h3></p>
-        
-        
-<p class="price"><h2>  Prix : 15 000 FCFA </h2></p>
-        
-      
-
-   
-<div class="image-container">
-            
-           
-
-       
-<img src="MyPhoto12_23_2024_10_02_17_PM.png" alt="Télévision LED">
-        </div>
-    </div>
-	    
-
-
-
-
-
-
-
-	    
-
-
-   
-  </body>
-  </html>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
 </body>
-	</html>
-	
+</html>
