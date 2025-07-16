@@ -7,7 +7,6 @@
   <link rel="shortcut icon" href="logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -33,11 +32,11 @@
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px;
       text-align: center;
+      animation: fadeIn 1s ease-out;
     }
 
     header h1 {
       font-size: 2.5rem;
-      color: #fff;
     }
 
     nav {
@@ -45,6 +44,7 @@
       flex-wrap: wrap;
       justify-content: center;
       background: #111;
+      animation: fadeIn 1.5s ease-in;
     }
 
     nav a {
@@ -52,17 +52,19 @@
       text-decoration: none;
       color: #fff;
       font-weight: 500;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s;
     }
 
     nav a:hover {
       background: #2a9d8f;
+      transform: scale(1.05);
     }
 
     .section {
       padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
+      animation: fadeIn 2s ease;
     }
 
     .section h2 {
@@ -91,12 +93,13 @@
       border-radius: 15px;
       padding: 20px;
       text-align: center;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .service-item:hover {
       transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
 
     .service-item img {
@@ -112,18 +115,18 @@
       padding: 20px 0;
     }
 
+    .gallery-wrapper {
+      display: flex;
+      width: fit-content;
+      animation: scroll 20s linear infinite;
+    }
+
     .gallery img {
       width: 150px;
       height: 100px;
       object-fit: cover;
       margin: 0 10px;
       border-radius: 10px;
-      animation: scroll 15s linear infinite;
-    }
-
-    .gallery-wrapper {
-      display: flex;
-      width: fit-content;
     }
 
     @keyframes scroll {
@@ -136,6 +139,11 @@
       padding: 30px;
       background: #00000080;
       color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 600px) {
@@ -163,7 +171,7 @@
   <h2>Qui sommes-nous ?</h2>
   <p>AmiBa est une application développée en 2024 qui regroupe plusieurs outils informatiques dans une seule plateforme pour libérer de l’espace et améliorer la productivité. Pour des raisons de sécurité, elle n’est pas encore disponible sur le Play Store.</p>
   <div style="text-align: center;">
-    <img src="logo.png" alt="Logo AmiBa" width="180" style="border-radius: 10px;">
+    <img src="logo.png" alt="Logo AmiBa" width="180" style="border-radius: 10px; box-shadow: 0 0 20px #000;">
   </div>
 </section>
 
@@ -205,10 +213,11 @@
     Réservez maintenant : <a href="https://hey.link/Sh1yE" style="color: #00ffcc;">https://hey.link/Sh1yE</a>
   </p>
   <div style="text-align: center;">
-    <img src="MyPhoto12_23_2024_10_02_17_PM.png" alt="Boutique Image" width="250" style="border-radius: 10px;">
+    <img src="MyPhoto12_23_2024_10_02_17_PM.png" alt="Boutique Image" width="250" style="border-radius: 10px; box-shadow: 0 0 20px #000;">
   </div>
 </section>
-    <section class="section" id="fondateur">
+
+<section class="section" id="fondateur">
   <h2>À propos du Fondateur</h2>
   <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px;">
     <img src="https://amibagroupe.websites.co.in/files/2011231/updates/2727626/joyeux-ann_1725788178pZ823p.jpeg" alt="Émile AGBABLI" style="width: 200px; border-radius: 15px; box-shadow: 0 0 10px #000;">
@@ -222,9 +231,6 @@
 <div class="footer">
   &copy; 2025 AmiBa Groupe — Tous droits réservés.
 </div>
-
-
-
 
 </body>
 </html>
