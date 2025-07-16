@@ -1,236 +1,208 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AmiBa Groupe</title>
-  <link rel="shortcut icon" href="logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmiBa Groupe - Accueil</title>
+    <link rel="shortcut icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      background: linear-gradient(-45deg, #1d3557, #457b9d, #2a9d8f, #264653);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      padding-bottom: 80px;
-    }
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #0f0f0f;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        header {
+            background: #111;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #00f0ff;
+        }
 
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      text-align: center;
-      animation: fadeIn 1s ease-out;
-    }
+        header img.logo {
+            width: 60px;
+        }
 
-    header h1 {
-      font-size: 2.5rem;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: #111;
-      animation: fadeIn 1.5s ease-in;
-    }
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-    nav a {
-      padding: 15px 20px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: background 0.3s, transform 0.3s;
-    }
+        nav ul li a:hover {
+            color: #00f0ff;
+            text-shadow: 0 0 5px #00f0ff;
+        }
 
-    nav a:hover {
-      background: #2a9d8f;
-      transform: scale(1.05);
-    }
+        .hero {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            padding: 80px 20px;
+            text-align: center;
+        }
 
-    .section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-      animation: fadeIn 2s ease;
-    }
+        .hero h1 {
+            font-size: 2.8rem;
+            color: #00f0ff;
+            margin-bottom: 20px;
+        }
 
-    .section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #f1faee;
-    }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
 
-    .section p {
-      font-size: 1.1rem;
-      text-align: center;
-      margin-bottom: 30px;
-      color: #f1faee;
-    }
+        .btn-download {
+            background: #00f0ff;
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      justify-items: center;
-    }
+        .btn-download:hover {
+            background: #00bcd4;
+        }
 
-    .service-item {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+        .services {
+            background: #111;
+            padding: 60px 20px;
+            text-align: center;
+        }
 
-    .service-item:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    }
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #00f0ff;
+        }
 
-    .service-item img {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
 
-    .gallery {
-      overflow: hidden;
-      padding: 20px 0;
-    }
+        .service-box {
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
 
-    .gallery-wrapper {
-      display: flex;
-      width: fit-content;
-      animation: scroll 20s linear infinite;
-    }
+        .service-box:hover {
+            transform: translateY(-8px);
+            border-color: #00f0ff;
+        }
 
-    .gallery img {
-      width: 150px;
-      height: 100px;
-      object-fit: cover;
-      margin: 0 10px;
-      border-radius: 10px;
-    }
+        .service-box img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
 
-    @keyframes scroll {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+        .service-box h3 {
+            color: #00f0ff;
+            margin-bottom: 10px;
+        }
 
-    .footer {
-      text-align: center;
-      padding: 30px;
-      background: #00000080;
-      color: #fff;
-    }
+        footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #00f0ff;
+            color: #777;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.5rem; }
-      nav a { padding: 10px; font-size: 14px; }
-    }
-  </style>
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <img src="logo.png" alt="AmiBa Groupe" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="http://amiba.onlinewebshop.net/">Marketplace</a></li>
+                <li><a href="https://emileag228.github.io/liveFootTv/">Live Foot TV</a></li>
+                <li><a href="contact.html">Aide</a></li>
+                <li><a href="https://heylink.me/amiba/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-  <h1>Bienvenue sur le site officiel d'AmiBa Groupe</h1>
-</header>
+    <section class="hero">
+        <h1>🚀 Lancement de l'APK AmiBa Chat</h1>
+        <p>
+            Découvrez AmiBa Chat, la plateforme tout-en-un développée par AmiBa Groupe pour connecter, sécuriser, former et innover. Application intelligente pour les particuliers, pros et institutions.
+        </p>
+        <a href="amiba.apk" class="btn-download">📲 Télécharger Maintenant</a>
+    </section>
 
-<nav>
-  <a href="#home">Accueil</a>
-  <a href="https://chat.whatsapp.com/K7HpwBmncGaBH2F0BnE167">Join Team</a>
-  <a href="https://emileag228.github.io/AmiBa-Informactic/">AmiBa Informatic</a>
-  <a href="http://amiba.onlinewebshop.net/">MarketPlace</a>
-  <a href="https://emileag228.github.io/liveFootTv/">Live Foot TV</a>
-  <a href="https://hey.link/Sh1yE">Contact</a>
-</nav>
+    <section class="services">
+        <h2>Nos Services</h2>
+        <div class="service-grid">
+            <div class="service-box">
+                <img src="developpeur.jpg" alt="Développement Web">
+                <h3>Développement Web</h3>
+                <p>Sites modernes, performants et sécurisés sur mesure.</p>
+            </div>
+            <div class="service-box">
+                <img src="it.jpg" alt="Consultation IT">
+                <h3>Consultation IT</h3>
+                <p>Accompagnement stratégique pour vos projets tech.</p>
+            </div>
+            <div class="service-box">
+                <img src="formation.jpg" alt="Formation">
+                <h3>Formation Programmation</h3>
+                <p>Devenez développeur avec nos formations intensives.</p>
+            </div>
+            <div class="service-box">
+                <img src="electricite.jpg" alt="Électricité">
+                <h3>Installation Électrique</h3>
+                <p>Interventions professionnelles pour entreprises et domiciles.</p>
+            </div>
+            <div class="service-box">
+                <img src="reseau.jpg" alt="Réseau & câblage">
+                <h3>Réseau & Câblage</h3>
+                <p>Optimisez vos infrastructures réseau.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://www.alarme-systeme.fr/images/headers/camera-videosurveillance-fond-bleu.jpg" alt="Vidéo Surveillance">
+                <h3>Caméras de Sécurité</h3>
+                <p>Solutions intelligentes pour la sécurité 24/7.</p>
+            </div>
+        </div>
+    </section>
 
-<section class="section" id="home">
-  <h2>Qui sommes-nous ?</h2>
-  <p>AmiBa est une application développée en 2024 qui regroupe plusieurs outils informatiques dans une seule plateforme pour libérer de l’espace et améliorer la productivité. Pour des raisons de sécurité, elle n’est pas encore disponible sur le Play Store.</p>
-  <div style="text-align: center;">
-    <img src="logo.png" alt="Logo AmiBa" width="180" style="border-radius: 10px; box-shadow: 0 0 20px #000;">
-  </div>
-</section>
-
-<section class="section" id="services">
-  <h2>Nos Services</h2>
-  <div class="services">
-    <div class="service-item">
-      <img src="open.jpg" alt="Développement Web">
-      <h3>Développement Web</h3>
-    </div>
-    <div class="service-item">
-      <img src="réseau.jpg" alt="Réseaux & Sécurité">
-      <h3>Réseaux Informatiques</h3>
-    </div>
-    <div class="service-item">
-      <img src="electricien.jpg" alt="Service Électricité">
-      <h3>Installation Électrique</h3>
-    </div>
-  </div>
-</section>
-
-<section class="section gallery">
-  <h2>Galerie AmiBa Groupe</h2>
-  <div class="gallery-wrapper">
-    <img src="AmiBa.jpg" alt="Image 1">
-    <img src="logo.png" alt="Image 2">
-    <img src="open.jpg" alt="Image 3">
-    <img src="electricien.jpg" alt="Image 4">
-  </div>
-</section>
-
-<section class="section">
-  <h2>Offre Spéciale : Création de Boutique en Ligne</h2>
-  <p>
-    Vous êtes commerçant ? Arrêtez de publier vos articles sur les statuts WhatsApp. AmiBa Groupe vous aide à créer un site e-commerce complet, rapide et élégant.
-    <br><br>
-    Prix : <strong>15 000 FCFA</strong>
-    <br>
-    Réservez maintenant : <a href="https://hey.link/Sh1yE" style="color: #00ffcc;">https://hey.link/Sh1yE</a>
-  </p>
-  <div style="text-align: center;">
-    <img src="MyPhoto12_23_2024_10_02_17_PM.png" alt="Boutique Image" width="250" style="border-radius: 10px; box-shadow: 0 0 20px #000;">
-  </div>
-</section>
-
-<section class="section" id="fondateur">
-  <h2>À propos du Fondateur</h2>
-  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px;">
-    <img src="https://amibagroupe.websites.co.in/files/2011231/updates/2727626/joyeux-ann_1725788178pZ823p.jpeg" alt="Émile AGBABLI" style="width: 200px; border-radius: 15px; box-shadow: 0 0 10px #000;">
-    <div style="max-width: 500px;">
-      <h3 style="color: #00f0ff;">AGBABLI YAWO EMILE</h3>
-      <p>Fondateur d'AmiBa Groupe, EMILE AG est un ingénieur électrotechnicien et informaticien passionné par l'innovation numérique. Grâce à sa polyvalence, il développe des solutions web, des systèmes de gestion, des plateformes éducatives et des applications professionnelles. Sa mission : rendre la technologie accessible et utile à tous.</p>
-    </div>
-  </div>
-</section>
-
-<div class="footer">
-  &copy; 2025 AmiBa Groupe — Tous droits réservés.
-</div>
-
+    <footer>
+        <p>&copy; 2025 AmiBa Groupe — Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
