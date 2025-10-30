@@ -9,314 +9,874 @@
   <link rel="icon" type="image/jpeg" href="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <style>
-    /* RESET */
-    * {margin: 0; padding: 0; box-sizing: border-box;}
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       background: #111;
       color: #eee;
-      scroll-behavior: smooth;
-      transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
+      transition: background 0.4s ease, color 0.4s ease;
     }
-    body.light { background: #fff; color: #111; }
-
+    /* LIGHT MODE */
+    body.light {
+      background: #fff;
+      color: #222;
+    }
     /* HEADER */
     header {
+      background: #000;
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: #000;
-      border-bottom: 3px solid #e50914;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      transition: background 0.3s;
+      border-bottom: 3px solid #e50914;
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
-    body.light header { background: #fff; }
-
+    body.light header {
+      background: #fff;
+      border-color: #e50914;
+    }
     header h1 {
       font-weight: 800;
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #e50914;
       letter-spacing: 2px;
+      transition: color 0.4s ease;
     }
-
-    /* NAVIGATION */
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+    body.light header h1 {
+      color: #e50914;
     }
     nav a {
-      text-decoration: none;
       color: #eee;
+      text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s;
+      margin-left: 1.8rem;
+      position: relative;
+      transition: color 0.3s ease;
+      cursor: pointer;
     }
-    body.light nav a { color: #111; }
-    nav a:hover { color: #e50914; }
-
-    /* DOWNLOAD BUTTON */
-    .download-btn {
+    body.light nav a {
+      color: #222;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #e50914;
+    }
+    /* Download Button */
+    nav a.download-btn {
       background: #e50914;
-      color: #fff !important;
       padding: 0.5rem 1rem;
       border-radius: 25px;
+      color: #fff !important;
       font-weight: 700;
-      transition: all 0.3s;
       box-shadow: 0 0 12px #e50914aa;
+      transition: background 0.3s ease;
     }
-    .download-btn:hover { background: #b3060e; }
-
-    /* THEME TOGGLE */
+    nav a.download-btn:hover,
+    nav a.download-btn:focus {
+      background: #b3060e;
+      box-shadow: 0 0 20px #b3060ecc;
+      color: #fff !important;
+    }
+    /* Toggle Button */
     #theme-toggle {
       background: transparent;
       border: 2px solid #e50914;
-      border-radius: 25px;
       color: #e50914;
-      font-weight: 700;
+      border-radius: 25px;
       padding: 0.4rem 1rem;
+      font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      margin-left: 1.8rem;
     }
-    #theme-toggle:hover {
+    #theme-toggle:hover,
+    #theme-toggle:focus {
       background: #e50914;
       color: #fff;
+      outline: none;
     }
-
-    /* HAMBURGER MENU */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
+    body.light #theme-toggle {
+      color: #e50914;
+      border-color: #e50914;
     }
-    .bar {
-      width: 25px;
-      height: 3px;
-      background: #e50914;
-      border-radius: 2px;
-      transition: all 0.3s;
+    body.light #theme-toggle:hover,
+    body.light #theme-toggle:focus {
+      background: #b3060e;
+      border-color: #b3060e;
+      color: #fff;
     }
-
-    /* MOBILE NAVIGATION */
-    @media (max-width: 900px) {
-      nav {
-        position: fixed;
-        top: 65px;
-        right: -100%;
-        flex-direction: column;
-        background: #000;
-        width: 70%;
-        height: calc(100vh - 65px);
-        padding-top: 2rem;
-        transition: right 0.3s;
-      }
-      body.light nav { background: #fff; }
-      nav.active { right: 0; }
-      nav a {
-        font-size: 1rem;
-        margin: 1rem 0;
-      }
-      .menu-toggle { display: flex; }
-      #theme-toggle { margin-top: 1rem; }
-    }
-
-    /* SECTIONS */
     section {
-      padding: 2rem 1rem;
       max-width: 1100px;
-      margin: auto;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      transition: color 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      transition-property: opacity, transform;
+      transition-duration: 0.8s;
+      transition-timing-function: ease-out;
     }
-
-    h2 { text-align: center; color: #e50914; margin-bottom: 1rem; }
-
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     /* ABOUT */
     .about p {
-      text-align: center;
+      max-width: 900px;
+      margin: 1rem auto 2rem;
       font-size: 1.1rem;
-      color: #ccc;
+      text-align: center;
+      color: #ddd;
+      transition: color 0.4s ease;
     }
-    body.light .about p { color: #444; }
-
-    /* FOUNDER */
+    body.light .about p {
+      color: #444;
+    }
+    /* FONDATEUR */
     .founder {
+      max-width: 900px;
+      margin: 3rem auto 0;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       align-items: center;
-      justify-content: center;
       background: #1a1a1a;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 0 25px #e50914aa;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
     }
-    body.light .founder { background: #f9f9f9; }
+    body.light .founder {
+      background: #f9f9f9;
+      box-shadow: 0 0 25px #e5091480;
+    }
     .founder img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
+      width: 220px;
       border-radius: 50%;
       border: 4px solid #e50914;
       box-shadow: 0 0 25px #e50914cc;
+      flex-shrink: 0;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    body.light .founder img {
+      border-color: #e50914;
+      box-shadow: 0 0 25px #e5091466;
     }
     .founder-info {
-      max-width: 600px;
+      flex: 1;
+      color: #eee;
+      transition: color 0.4s ease;
+    }
+    body.light .founder-info {
+      color: #222;
     }
     .founder-info h3 {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
       color: #e50914;
+      transition: color 0.4s ease;
     }
-    .founder-info h4 { font-style: italic; color: #bbb; }
-    .founder-info p { margin-top: 1rem; line-height: 1.5; }
-
+    .founder-info h4 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      color: #bbb;
+      font-style: italic;
+      transition: color 0.4s ease;
+    }
+    body.light .founder-info h4 {
+      color: #666;
+    }
+    .founder-info p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #ccc;
+      transition: color 0.4s ease;
+    }
+    body.light .founder-info p {
+      color: #444;
+    }
     /* SERVICES */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
       margin-top: 2rem;
     }
     .card {
       background: #222;
-      padding: 1.5rem;
-      border-radius: 10px;
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 0 18px #e5091477;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, color 0.4s ease;
+      color: #eee;
       text-align: center;
-      box-shadow: 0 0 15px #e5091477;
-      transition: transform 0.3s;
+      cursor: default;
     }
-    .card:hover { transform: translateY(-5px); }
-    .card i { font-size: 2rem; color: #e50914; margin-bottom: 0.5rem; }
-    .card h3 { color: #e50914; margin-bottom: 0.5rem; }
-    .card p { color: #ccc; }
-
-    /* CONTACT */
+    body.light .card {
+      background: #fff;
+      color: #222;
+      box-shadow: 0 0 18px #e5091444;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px #e50914cc;
+    }
+    .card i {
+      color: #e50914;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      transition: color 0.4s ease;
+    }
+    .card h3 {
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #e50914;
+      transition: color 0.4s ease;
+    }
+    .card p {
+      font-size: 1rem;
+      color: #ccc;
+      transition: color 0.4s ease;
+    }
+    body.light .card i,
+    body.light .card h3 {
+      color: #e50914;
+    }
+    body.light .card p {
+      color: #555;
+    }
+    /* PORTFOLIO - Slider styles */
+    #portfolio {
+      position: relative;
+    }
+    .portfolio-slider {
+      overflow: hidden;
+      position: relative;
+      margin-top: 2rem;
+    }
+    .slides-wrapper {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      will-change: transform;
+    }
+    .slide {
+      min-width: 100%;
+      padding: 1rem;
+      box-sizing: border-box;
+      text-align: center;
+      user-select: none;
+      outline: none;
+      background: #222;
+      border-radius: 12px;
+      box-shadow: 0 0 18px #e5091477;
+      color: #eee;
+      cursor: grab;
+      transition: background 0.4s ease, color 0.4s ease;
+      position: relative;
+    }
+    body.light .slide {
+      background: #fff;
+      color: #222;
+      box-shadow: 0 0 18px #e5091444;
+    }
+    .slide h3 {
+      color: #e50914;
+      margin-bottom: 0.7rem;
+    }
+    .slide p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+    body.light .slide p {
+      color: #555;
+    }
+    /* Make images clickable in slide for lightbox */
+    .slide img {
+      max-width: 80%;
+      border-radius: 10px;
+      margin-top: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px #e50914bb;
+      transition: transform 0.3s ease;
+    }
+    .slide img:hover {
+      transform: scale(1.05);
+    }
+    /* Slider controls */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      border: none;
+      color: #e50914;
+      font-size: 2rem;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    .slider-btn:hover {
+      background: rgba(0,0,0,0.9);
+    }
+    body.light .slider-btn {
+      color: #e50914;
+      background: rgba(255,255,255,0.9);
+    }
+    #prev-btn {
+      left: 10px;
+    }
+    #next-btn {
+      right: 10px;
+    }
+    /* Pagination dots */
+    .pagination {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .pagination button {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: none;
+      background: #555;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .pagination button.active,
+    .pagination button:hover,
+    .pagination button:focus {
+      background: #e50914;
+      outline: none;
+    }
+    /* Testimonials */
+    #testimonials {
+      overflow: hidden;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 1.5rem;
+      animation: scrollTestimonials 20s linear infinite;
+    }
+    #testimonials:hover .testimonials-track,
+    #testimonials:focus-within .testimonials-track {
+      animation-play-state: paused;
+    }
+    .testimonials-track .card {
+      flex: 0 0 300px;
+      background: #1f1f1f;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 0 15px #e50914bb;
+      color: #eee;
+      font-style: italic;
+      cursor: default;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+    body.light .testimonials-track .card {
+      background: #fff;
+      color: #222;
+      box-shadow: 0 0 15px #e5091466;
+    }
+    .testimonials-track .card strong {
+      display: block;
+      margin-top: 1rem;
+      text-align: right;
+      font-style: normal;
+      font-weight: 700;
+      color: #e50914;
+    }
+    @keyframes scrollTestimonials {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-300px * 3)); }
+    }
+    /* Contact form */
     #contact form {
       max-width: 500px;
-      margin: 2rem auto;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.2rem;
     }
-    #contact input, #contact textarea {
-      padding: 0.8rem;
+    #contact input,
+    #contact textarea {
+      padding: 0.8rem 1rem;
       border: 2px solid #e50914;
       border-radius: 8px;
       background: #222;
+      color: #eee;
+      font-size: 1rem;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    body.light #contact input,
+    body.light #contact textarea {
+      background: #fff;
+      color: #222;
+      border-color: #b3060e;
+    }
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: #ff3636;
+      background: #333;
       color: #fff;
     }
-    body.light #contact input, body.light #contact textarea {
-      background: #fff;
-      color: #000;
-      border-color: #e50914;
+    body.light #contact input:focus,
+    body.light #contact textarea:focus {
+      background: #ffe6e6;
+      color: #222;
     }
     #contact button {
-      padding: 0.8rem;
-      background: #e50914;
-      color: #fff;
+      padding: 0.9rem 1.2rem;
       border: none;
       border-radius: 8px;
+      background: #e50914;
+      color: #fff;
       font-weight: 700;
+      font-size: 1.1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
     }
-    #contact button:hover { background: #b3060e; }
-
-    /* FOOTER */
+    #contact button:hover,
+    #contact button:focus {
+      background: #b3060e;
+      outline: none;
+    }
+    /* Footer */
     footer {
       text-align: center;
-      padding: 1.5rem;
-      border-top: 3px solid #e50914;
+      padding: 1.5rem 1rem;
       font-size: 0.9rem;
-      color: #aaa;
+      background: #111;
+      color: #888;
+      border-top: 3px solid #e50914;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+    body.light footer {
+      background: #f0f0f0;
+      color: #555;
+    }
+    footer a {
+      color: #e50914;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    footer a:hover,
+    footer a:focus {
+      color: #ff4c4c;
+      outline: none;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .founder {
+        flex-direction: column;
+        text-align: center;
+      }
+      .founder img {
+        margin-bottom: 1.5rem;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .testimonials-track {
+        animation: none;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .testimonials-track .card {
+        flex: 1 1 100%;
+        max-width: 350px;
+        margin-bottom: 1.5rem;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+    /* Lightbox styles */
+    #lightbox-overlay {
+      position: fixed;
+      top: 0; left: 0; right:0; bottom:0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      cursor: zoom-out;
+      padding: 1rem;
+    }
+    #lightbox-overlay.active {
+      display: flex;
+    }
+    #lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #e50914cc;
+      user-select: none;
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+    #lightbox-close {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2.2rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 2100;
+      background: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    #lightbox-close:hover {
+      background: rgba(0,0,0,0.85);
+    }
+    body.light #lightbox-close {
+      color: #e50914;
+      background: rgba(255,255,255,0.9);
     }
   </style>
 </head>
 <body>
-  <header>
+  <header role="banner">
     <h1>AmiBa Groupe</h1>
-
-    <div class="menu-toggle" id="menu-toggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-
-    <nav id="navbar">
+    <nav role="navigation" aria-label="Menu principal">
       <a href="#founder">Fondateur</a>
-      <a href="http://amiba.onlinewebshop.net/">AmiBa MarketPlace</a>
+      <a href="  http://amiba.onlinewebshop.net/">AmiBa MarketPlace</a>
       <a href="https://emileag228.github.io/liveFootTv/">Live Foot</a>
       <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#testimonials">Témoignages</a>
       <a href="#contact">Contact</a>
-      <a href="https://emileag228.github.io/AmiBa-Informactic/" class="download-btn">Téléchargez</a>
-      <button id="theme-toggle">Mode Clair</button>
+      <a href="https://emileag228.github.io/AmiBa-Informactic/" rel="noopener" class="download-btn">Téléchargez</a>
+      <button id="theme-toggle" aria-label="Changer le thème">Mode Clair</button>
     </nav>
   </header>
 
-  <section id="about" class="about">
+  <section id="about" tabindex="-1" aria-label="À propos de AmiBa Groupe" class="section visible">
     <h2>AmiBa Groupe</h2>
     <p>
-      AmiBa Groupe est une entreprise togolaise spécialisée dans la transformation digitale : développement web, infographie, sécurité informatique et solutions numériques adaptées à l’Afrique.
+      AmiBa Groupe est une entreprise togolaise spécialisée dans la transformation digitale : développement web,
+    AmiBa Groupe est un collectif technologique togolais engagé dans le développement de solutions digitales modernes, accessibles et adaptées au contexte africain.
+
+Né d’une volonté de valoriser les talents locaux et de répondre aux besoins réels du marché, AmiBa Groupe se spécialise dans :
+
+Développement d’applications web & mobiles
+
+Création de sites vitrine, e-commerce & institutionnels
+
+Design UI/UX professionnel & responsive
+
+Accompagnement digital pour entreprises & projets
+
+Fort d’une équipe jeune, créative et compétente, AmiBa Groupe place l’utilisateur au cœur de chaque projet. Son produit phare, AmiBa Chat, incarne l’esprit du groupe : rapidité, légèreté, sécurité et identité africaine.  sécurité informatique, infographie, marketing digital et solutions innovantes sur mesure.
     </p>
   </section>
 
-  <section id="founder" class="founder">
-    <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_0021-1.jpg?w=1024" alt="Photo du fondateur">
+  <section id="founder" tabindex="-1" aria-label="Fondateur et biographie" class="section founder">
+    <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_0021-1.jpg?w=1024" alt="Photo d'Emile AGBABLI, fondateur de AmiBa Groupe" />
     <div class="founder-info">
       <h3>EMILE AG</h3>
       <h4>Fondateur & CEO</h4>
-      <p>
-        EMILE AG, de son nom complet AGBABLI YAWO EMILE, est un jeune développeur web et mobile passionné, fondateur d’AmiBa Groupe et créateur de l’application AmiBa Chat.
-      </p>
-      <div style="margin-top: 1.5rem;">
-        <a href="https://emileag228.github.io/emileag-portfolio/">
-          <button style="background:#8B0000;color:white;border:2px solid black;padding:10px 25px;border-radius:8px;font-weight:bold;cursor:pointer;">Voir mon Portfolio</button>
-        </a>
-      </div>
+<p>
+  EMILE AG, de son nom complet AGBABLI YAWO EMILE, est un jeune développeur web et mobile passionné, originaire du Togo. Étudiant en réseaux informatiques et télécommunications à l’ESGIS, il combine ses connaissances techniques et sa créativité pour concevoir des applications modernes, légères et sécurisées.
+  <br><br>
+  Créateur de l’application AmiBa Chat, une plateforme de messagerie 100% togolaise, EMILE AG s’est donné pour mission de faciliter la communication locale grâce à des solutions numériques adaptées aux besoins africains. Son approche repose sur l’innovation, la simplicité et la performance.
+  <br><br>
+  En parallèle de ses études, il développe également des sites web professionnels, des boutiques e-commerce, des portails éducatifs, et participe activement à la promotion de la technologie au Togo et en Afrique de l’Ouest.
+</p>
+
+<!-- Bouton Portfolio en rouge/noir -->
+<div style="margin-top: 20px; text-align: center;">
+  <a href="https://emileag228.github.io/emileag-portfolio/" style="text-decoration: none;">
+    <button style="
+      background-color: #8B0000; /* Rouge foncé */
+      color: white;
+      border: 2px solid black;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    "
+    onmouseover="this.style.backgroundColor='black'; this.style.color='red';"
+    onmouseout="this.style.backgroundColor='#8B0000'; this.style.color='white';">
+      Voir mon Portfolio
+    </button>
+  </a>
+</div>
+
     </div>
   </section>
 
-  <section id="services">
+  <section id="services" tabindex="-1" aria-label="Nos services" class="section">
     <h2>Nos Services</h2>
-    <div class="services-grid">
-      <div class="card"><i class="fas fa-code"></i><h3>Développement Web</h3><p>Sites vitrines, e-commerce et apps modernes.</p></div>
-      <div class="card"><i class="fas fa-paint-brush"></i><h3>Design & Infographie</h3><p>Création de logos, flyers, UI/UX pro.</p></div>
-      <div class="card"><i class="fas fa-lock"></i><h3>Sécurité</h3><p>Protection des données et cybersécurité.</p></div>
-      <div class="card"><i class="fas fa-bullhorn"></i><h3>Marketing Digital</h3><p>SEO, branding et community management.</p></div>
+    <div class="services-grid" role="list">
+      <article class="card" role="listitem" tabindex="0">
+        <i class="fas fa-code" aria-hidden="true"></i>
+        <h3>Développement Web & Mobile</h3>
+        <p>Sites vitrines, e-commerce, applications mobiles Android et iOS.</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0">
+        <i class="fas fa-paint-brush" aria-hidden="true"></i>
+        <h3>Infographie & Design</h3>
+        <p>Création de logos, affiches, flyers, maquettes UI/UX modernes.</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0">
+        <i class="fas fa-lock" aria-hidden="true"></i>
+        <h3>Sécurité Informatique</h3>
+        <p>Protection de vos données, cybersécurité, tests de vulnérabilité.</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0">
+        <i class="fas fa-bullhorn" aria-hidden="true"></i>
+        <h3>Marketing Digital</h3>
+        <p>Campagnes ciblées, SEO, community management, branding.</p>
+      </article>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="portfolio" tabindex="-1" aria-label="Portfolio de projets" class="section">
+    <h2>Portfolio</h2>
+    <div class="portfolio-slider" aria-live="polite">
+      <button class="slider-btn" id="prev-btn" aria-label="Projet précédent"><i class="fas fa-chevron-left"></i></button>
+      <div class="slides-wrapper" tabindex="0">
+        <article class="slide" role="group" aria-roledescription="slide" aria-label="Site e-commerce" tabindex="0">
+          <h3>Site e-commerce</h3>
+          <p>Boutique en ligne développée avec paiement sécurisé.</p>
+          <img src="https://i.ytimg.com/vi/KiPXwL48RNs/hqdefault.jpg" alt="Capture d'écran du site e-commerce" />
+        </article>
+        <article class="slide" role="group" aria-roledescription="slide" aria-label="Application mobile" tabindex="0">
+          <h3>Application mobile</h3>
+          <p>Application sociale rapide et intuitive comme AmiBa Chat.</p>
+          <img src="https://emileag228.github.io/AmiBa-Informactic/amibachat.jpg" alt="Capture d'écran de l'application mobile AmiBa Chat" />
+        </article>
+        <article class="slide" role="group" aria-roledescription="slide" aria-label="Logo & Charte graphique" tabindex="0">
+          <h3>Logo & Charte graphique</h3>
+          <p>Designs professionnels et cohérents pour entreprises modernes.</p>
+          <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg" alt="Exemples de logo et charte graphique" />
+        </article>
+      </div>
+      <button class="slider-btn" id="next-btn" aria-label="Projet suivant"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="pagination" role="tablist" aria-label="Navigation du portfolio">
+      <button role="tab" aria-selected="true" aria-controls="slide1" id="dot1" class="active" tabindex="0"></button>
+      <button role="tab" aria-selected="false" aria-controls="slide2" id="dot2" tabindex="-1"></button>
+      <button role="tab" aria-selected="false" aria-controls="slide3" id="dot3" tabindex="-1"></button>
+    </div>
+  </section>
+
+  <section id="testimonials" tabindex="-1" aria-label="Témoignages clients" class="section">
+    <h2>Témoignages</h2>
+    <div class="testimonials-track" aria-live="polite" aria-atomic="true">
+      <article class="card" tabindex="0">
+        <p>“Grâce à AmiBa Groupe, notre entreprise a connu une croissance digitale fulgurante.”</p>
+        <strong>- Kossi, CEO d'une PME</strong>
+      </article>
+      <article class="card" tabindex="0">
+        <p>“Équipe professionnelle, à l’écoute et très réactive. Je recommande à 100%.”</p>
+        <strong>- Nadia, Graphiste freelance</strong>
+      </article>
+      <article class="card" tabindex="0">
+        <p>“Leur application mobile est fluide, sécurisée et très bien pensée. Bravo !”</p>
+        <strong>- Didier, Étudiant développeur</strong>
+      </article>
+      <!-- Boucle pour scroll infini -->
+      <article class="card" tabindex="0">
+        <p>“Grâce à AmiBa Groupe, notre entreprise a connu une croissance digitale fulgurante.”</p>
+        <strong>- Kossi, CEO d'une PME</strong>
+      </article>
+      <article class="card" tabindex="0">
+        <p>“Équipe professionnelle, à l’écoute et très réactive. Je recommande à 100%.”</p>
+        <strong>- Nadia, Graphiste freelance</strong>
+      </article>
+      <article class="card" tabindex="0">
+        <p>“Leur application mobile est fluide, sécurisée et très bien pensée. Bravo !”</p>
+        <strong>- Didier, Étudiant développeur</strong>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" tabindex="-1" aria-label="Formulaire de contact AmiBa Groupe" class="section">
     <h2>Contactez-nous</h2>
-    <form onsubmit="event.preventDefault();alert('Message envoyé avec succès !');">
-      <input type="text" placeholder="Votre nom" required>
-      <input type="email" placeholder="Votre email" required>
-      <textarea rows="5" placeholder="Votre message" required></textarea>
-      <button type="submit">Envoyer</button>
+    <form onsubmit="event.preventDefault(); alert('Message envoyé avec succès !');" aria-label="Formulaire de contact AmiBa Groupe">
+      <input type="text" placeholder="Votre nom" required aria-required="true" />
+      <input type="email" placeholder="Votre email" required aria-required="true" />
+      <textarea placeholder="Votre message" rows="5" required aria-required="true"></textarea>
+      <button type="submit" aria-label="Envoyer le message">Envoyer</button>
     </form>
   </section>
 
-  <footer>
-    © 2025 AmiBa Groupe | Développé par <a href="#">EMILE AG</a>
+  <footer role="contentinfo">
+    <p>&copy; 2025 AmiBa Groupe | Tous droits réservés</p>
+    <p>
+      Contact : <a href="mailto:emileagbabli7@gmail.com">emileagbabli7@gmail.com</a> | Tél : +228 93 89 69 72 / 96 36 37 60
+    </p>
   </footer>
 
+  <!-- Lightbox modal -->
+  <div id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Visualiseur d'image">
+    <img src="" alt="Image agrandie" />
+    <button id="lightbox-close" aria-label="Fermer la visionneuse"><i class="fas fa-times"></i></button>
+  </div>
+
   <script>
-    // Menu toggle mobile
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('navbar');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      toggle.classList.toggle('open');
+    // Theme toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+      body.classList.add('light');
+      toggleBtn.textContent = 'Mode Sombre';
+    } else {
+      toggleBtn.textContent = 'Mode Clair';
+    }
+    toggleBtn.addEventListener('click', () => {
+      if (body.classList.contains('light')) {
+        body.classList.remove('light');
+        toggleBtn.textContent = 'Mode Clair';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.add('light');
+        toggleBtn.textContent = 'Mode Sombre';
+        localStorage.setItem('theme', 'light');
+      }
     });
 
-    // Mode clair/sombre
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-      themeToggle.textContent =
-        document.body.classList.contains('light') ? 'Mode Sombre' : 'Mode Clair';
+    // Portfolio slider logic
+    const slidesWrapper = document.querySelector('.slides-wrapper');
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dots = Array.from(document.querySelectorAll('.pagination button'));
+
+    let currentIndex = 0;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
+
+    function setPositionByIndex() {
+      currentTranslate = -currentIndex * slidesWrapper.clientWidth;
+      prevTranslate = currentTranslate;
+      setSliderPosition();
+      updateDots();
+    }
+
+    function setSliderPosition() {
+      slidesWrapper.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        if (i === currentIndex) {
+          dot.classList.add('active');
+          dot.setAttribute('aria-selected', 'true');
+          dot.setAttribute('tabindex', '0');
+        } else {
+          dot.classList.remove('active');
+          dot.setAttribute('aria-selected', 'false');
+          dot.setAttribute('tabindex', '-1');
+        }
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      setPositionByIndex();
+    });
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      setPositionByIndex();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        currentIndex = i;
+        setPositionByIndex();
+      });
+    });
+
+    // Initialize slider position
+    setPositionByIndex();
+
+    // Scroll fade-in effect
+    const sections = document.querySelectorAll('section.section');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    sections.forEach(section => observer.observe(section));
+
+    // Lightbox functionality
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImage = lightboxOverlay.querySelector('img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('#portfolio img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightboxOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        lightboxClose.focus();
+      });
+    });
+
+    function closeLightbox() {
+      lightboxOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    lightboxOverlay.addEventListener('click', e => {
+      if (e.target === lightboxOverlay || e.target === lightboxClose) {
+        closeLightbox();
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightboxOverlay.classList.contains('active')) {
+        closeLightbox();
+      }
     });
   </script>
+  
 </body>
 </html>
