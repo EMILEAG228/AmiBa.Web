@@ -1,175 +1,233 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AmiBa Groupe IA Futuriste</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="AmiBa Groupe - Services numériques, développement web, mobile, infographie, sécurité informatique et projets innovants." />
+<title>AmiBa Groupe Officiel</title>
+<link rel="icon" href="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 <style>
-/* ==== RESET ==== */
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{font-family:'Poppins',sans-serif;background:#111;color:#eee;line-height:1.6;overflow-x:hidden;transition:0.6s;}
-body.light{background:#fff;color:#222;}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family:'Poppins',sans-serif; background:#111; color:#eee; line-height:1.6; transition:0.4s; }
+body.light { background:#fff; color:#222; }
 
-/* ==== PARTICULES ==== */
-#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+/* HEADER */
+header { background:#000; padding:1rem 2rem; position:sticky; top:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; border-bottom:3px solid #e50914; transition:0.4s; }
+body.light header { background:#fff; border-color:#e50914; }
+header h1 { font-weight:800; font-size:2rem; color:#e50914; letter-spacing:2px; }
+body.light header h1 { color:#e50914; }
+nav a { color:#eee; text-decoration:none; font-weight:600; margin-left:1.8rem; transition:0.3s; }
+body.light nav a { color:#222; }
+nav a:hover { color:#e50914; }
+nav a.download-btn { background:#e50914; padding:0.5rem 1rem; border-radius:25px; color:#fff!important; font-weight:700; box-shadow:0 0 12px #e50914aa; transition:0.3s; }
+nav a.download-btn:hover { background:#b3060e; box-shadow:0 0 20px #b3060ecc; }
 
-/* ==== HEADER ==== */
-header{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:#000;border-bottom:3px solid #e50914;z-index:1000;transition:all 0.4s;}
-body.light header{background:#fff;border-color:#e50914;}
-header h1{font-size:2rem;font-weight:800;color:#e50914;letter-spacing:2px;text-shadow:0 0 10px #e50914;}
-nav a{color:#eee;text-decoration:none;font-weight:600;margin-left:1.8rem;position:relative;transition:all 0.3s;}
-body.light nav a{color:#222;}
-nav a:hover{color:#e50914;text-shadow:0 0 8px #e50914;}
-nav a.download-btn{background:#e50914;padding:.5rem 1rem;border-radius:25px;color:#fff;font-weight:700;box-shadow:0 0 12px #e50914aa;transition:all 0.3s;}
-nav a.download-btn:hover{background:#b3060e;box-shadow:0 0 20px #b3060ecc;color:#fff;}
-#theme-toggle{background:transparent;border:2px solid #e50914;color:#e50914;border-radius:25px;padding:.4rem 1rem;font-weight:700;cursor:pointer;font-size:.9rem;margin-left:1.8rem;transition:all 0.3s;}
-#theme-toggle:hover{background:#e50914;color:#fff;}
+/* THEME TOGGLE */
+#theme-toggle { background:transparent; border:2px solid #e50914; color:#e50914; border-radius:25px; padding:0.4rem 1rem; font-weight:700; cursor:pointer; font-size:0.9rem; transition:all 0.3s; margin-left:1.8rem; }
+#theme-toggle:hover { background:#e50914; color:#fff; }
 
-/* ==== SECTION ==== */
-section{max-width:1100px;margin:3rem auto;padding:0 1rem;opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
-section.visible{opacity:1;transform:translateY(0);}
+/* SECTIONS */
+section { max-width:1100px; margin:3rem auto; padding:0 1rem; opacity:0; transform:translateY(30px); transition:0.8s ease-out; }
+section.visible { opacity:1; transform:translateY(0); }
 
-/* ==== FONDATEUR ==== */
-.founder{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;background:#1a1a1a;padding:2rem;border-radius:12px;box-shadow:0 0 25px #e50914aa;transition:all 0.4s;}
-body.light .founder{background:#f9f9f9;box-shadow:0 0 25px #e5091480;}
-.founder img{width:220px;border-radius:50%;border:4px solid #e50914;box-shadow:0 0 25px #e50914cc;flex-shrink:0;cursor:pointer;filter:drop-shadow(0 0 10px #e50914);}
-.founder-info{flex:1;color:#eee;}
-.founder-info h3{font-size:2rem;margin-bottom:.5rem;color:#e50914;text-shadow:0 0 8px #e50914;animation:glitch 2s infinite;}
-@keyframes glitch{
-  0%{text-shadow:2px 0 #ff0000, -2px 0 #00ffea;}
-  25%{text-shadow:-2px 0 #ff00ff, 2px 0 #00ff00;}
-  50%{text-shadow:2px 0 #00ffff, -2px 0 #ff0000;}
-  75%{text-shadow:-2px 0 #ff0000, 2px 0 #00ff00;}
-  100%{text-shadow:2px 0 #ff0000, -2px 0 #00ffea;}
+/* SECTION TITLES */
+section h2 { font-size:2rem; color:#e50914; text-align:center; margin-bottom:1rem; }
+
+/* ABOUT */
+#about p { max-width:900px; margin:1rem auto 2rem; text-align:center; color:#ddd; font-size:1.1rem; }
+body.light #about p { color:#444; }
+
+/* FOUNDER / DG */
+.founder, .team-member { display:flex; flex-wrap:wrap; gap:2rem; align-items:center; background:#1a1a1a; padding:2rem; border-radius:12px; box-shadow:0 0 25px #e50914aa; margin-bottom:2rem; }
+body.light .founder, body.light .team-member { background:#f9f9f9; box-shadow:0 0 25px #e5091480; }
+.founder img, .team-member img { width:220px; border-radius:50%; border:4px solid #e50914; box-shadow:0 0 25px #e50914cc; flex-shrink:0; }
+.founder-info, .team-info { flex:1; color:#eee; }
+body.light .founder-info, body.light .team-info { color:#222; }
+.founder-info h3, .team-info h3 { font-size:2rem; margin-bottom:0.5rem; color:#e50914; }
+.founder-info h4, .team-info h4 { font-size:1.1rem; font-style:italic; margin-bottom:1rem; color:#bbb; }
+body.light .founder-info h4, body.light .team-info h4 { color:#666; }
+.founder-info p, .team-info p { color:#ccc; font-size:1.1rem; line-height:1.5; }
+body.light .founder-info p, body.light .team-info p { color:#444; }
+
+/* SERVICES */
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:2rem; margin-top:2rem; }
+.card { background:#222; padding:1.8rem; border-radius:12px; box-shadow:0 0 18px #e5091477; text-align:center; color:#eee; transition:0.3s; cursor:default; }
+body.light .card { background:#fff; color:#222; box-shadow:0 0 18px #e5091444; }
+.card:hover { transform:translateY(-10px); box-shadow:0 0 30px #e50914cc; }
+.card i { font-size:2.8rem; margin-bottom:1rem; color:#e50914; }
+.card h3 { margin-bottom:0.7rem; color:#e50914; }
+.card p { color:#ccc; }
+body.light .card p { color:#555; }
+
+/* PORTFOLIO / GALLERY */
+.portfolio-slider { overflow:hidden; position:relative; margin-top:2rem; }
+.slides-wrapper { display:flex; transition:transform 0.4s ease-in-out; }
+.slide { min-width:100%; padding:1rem; background:#222; border-radius:12px; box-shadow:0 0 18px #e5091477; color:#eee; text-align:center; cursor:grab; }
+body.light .slide { background:#fff; color:#222; box-shadow:0 0 18px #e5091444; }
+.slide img { max-width:80%; border-radius:10px; margin-top:1rem; cursor:pointer; box-shadow:0 0 20px #e50914bb; transition:0.3s; }
+.slide img:hover { transform:scale(1.05); }
+
+/* TEAM GRID */
+.team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:2rem; }
+
+/* CONTACT FORM */
+#contact form { max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:1.2rem; }
+#contact input, #contact textarea { padding:0.8rem 1rem; border-radius:8px; border:2px solid #e50914; background:#222; color:#eee; font-size:1rem; }
+body.light #contact input, body.light #contact textarea { background:#fff; color:#222; border-color:#b3060e; }
+#contact button { padding:0.9rem 1.2rem; border:none; border-radius:8px; background:#e50914; color:#fff; font-weight:700; font-size:1.1rem; cursor:pointer; transition:0.3s; }
+#contact button:hover { background:#b3060e; }
+
+/* FOOTER */
+footer { text-align:center; padding:1.5rem 1rem; background:#111; color:#888; border-top:3px solid #e50914; }
+body.light footer { background:#f0f0f0; color:#555; }
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .founder, .team-member { flex-direction:column; text-align:center; }
+  .founder img, .team-member img { margin-bottom:1.5rem; }
+  .services-grid { grid-template-columns:1fr; }
 }
-.founder-info h4{font-weight:600;margin-bottom:1rem;font-size:1.1rem;color:#bbb;font-style:italic;}
-.founder-info p{font-size:1.1rem;line-height:1.5;color:#ccc;}
-
-/* ==== SERVICES ==== */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2rem;margin-top:2rem;}
-.card{background:#222;padding:1.8rem;border-radius:12px;box-shadow:0 0 18px #e5091477;text-align:center;color:#eee;cursor:pointer;transform:perspective(600px) rotateX(0deg) rotateY(0deg);transition:all 0.5s;}
-.card:hover{transform:perspective(600px) rotateX(5deg) rotateY(5deg) scale(1.05);box-shadow:0 0 30px #e50914cc;}
-.card i{color:#e50914;font-size:2.8rem;margin-bottom:1rem;}
-.card h3{margin-bottom:.7rem;font-weight:700;font-size:1.3rem;color:#e50914;}
-.card p{font-size:1rem;color:#ccc;}
-
-/* ==== PORTFOLIO SLIDER 3D ==== */
-.portfolio-slider{position:relative;overflow:hidden;margin-top:2rem;perspective:1000px;}
-.slides-wrapper{display:flex;transition:transform 0.8s ease-in-out;transform-style:preserve-3d;will-change:transform;}
-.slide{min-width:100%;padding:1rem;text-align:center;background:#222;border-radius:12px;box-shadow:0 0 18px #e5091477;color:#eee;cursor:pointer;transform-style:preserve-3d;transition:all 0.5s;}
-.slide img{max-width:80%;border-radius:10px;margin-top:1rem;cursor:zoom-in;transition:transform 0.3s ease, filter 0.3s;}
-.slide img:hover{transform:scale(1.07) rotateY(5deg) rotateX(3deg) drop-shadow(0 0 15px #e50914);}
-
-/* ==== PARTICULES CANVAS ==== */
-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;}
-
-/* ==== CONTACT ==== */
-#contact form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:1.2rem;}
-#contact input,#contact textarea{padding:.8rem 1rem;border:2px solid #e50914;border-radius:8px;background:#222;color:#eee;font-size:1rem;transition:all 0.3s;}
-body.light #contact input,body.light #contact textarea{background:#fff;color:#222;border-color:#b3060e;}
-#contact button{padding:.9rem 1.2rem;border:none;border-radius:8px;background:#e50914;color:#fff;font-weight:700;font-size:1.1rem;cursor:pointer;transition:all 0.3s;}
-#contact button:hover{background:#b3060e;}
-
-/* ==== FOOTER ==== */
-footer{text-align:center;padding:1.5rem 1rem;font-size:.9rem;background:#111;color:#888;border-top:3px solid #e50914;}
-body.light footer{background:#f0f0f0;color:#555;}
 </style>
 </head>
+
 <body>
-<canvas id="particles"></canvas>
 
 <header>
 <h1>AmiBa Groupe</h1>
 <nav>
-<a href="#founder">Fondateur</a>
+<a href="#about">À propos</a>
 <a href="#services">Services</a>
 <a href="#portfolio">Portfolio</a>
+<a href="#team">Équipe</a>
 <a href="#contact">Contact</a>
-<a class="download-btn" href="#">Téléchargez</a>
+<a href="https://www.youtube.com/@emileag228" target="_blank" class="download-btn">YouTube</a>
 <button id="theme-toggle">Mode Clair</button>
 </nav>
 </header>
 
+<!-- ABOUT -->
+<section id="about" class="section visible">
+<h2>À propos d’AmiBa Groupe</h2>
+<p>
+AmiBa Groupe est une entreprise togolaise fondée en 2020, spécialisée dans le développement web, mobile, la cybersécurité, l’infographie et les solutions digitales innovantes. Notre mission est d’accompagner entreprises et particuliers dans leur transformation digitale avec des solutions performantes et accessibles.
+</p>
+</section>
+
+<!-- FOUNDER -->
 <section id="founder" class="section visible">
 <div class="founder">
-<img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_0021-1.jpg" alt="Photo Emile AG">
+<img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_0021-1.jpg" alt="Emile AG, Directeur Général">
 <div class="founder-info">
 <h3>EMILE AG</h3>
-<h4>Fondateur & CEO</h4>
-<p>Développeur web et mobile passionné, créateur de AmiBa Chat et solutions digitales modernes pour l’Afrique de l’Ouest.</p>
+<h4>Directeur Général</h4>
+<p>Fondateur de AmiBa Groupe, passionné par le digital et les technologies innovantes. Créateur de l’application AmiBa Chat et de plusieurs projets web et mobiles au Togo.</p>
+<p>Voir ses projets sur <a href="https://www.youtube.com/@emileag228" target="_blank" style="color:#e50914;font-weight:bold;">YouTube</a></p>
 </div>
 </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="section visible">
 <h2>Nos Services</h2>
 <div class="services-grid">
-<div class="card"><i class="fas fa-code"></i><h3>Web & Mobile</h3><p>Sites, applis Android/iOS sécurisées et rapides.</p></div>
-<div class="card"><i class="fas fa-paint-brush"></i><h3>Infographie</h3><p>Logos, flyers, UI/UX design modernes.</p></div>
-<div class="card"><i class="fas fa-lock"></i><h3>Sécurité</h3><p>Protection des données, cybersécurité, tests de vulnérabilité.</p></div>
-<div class="card"><i class="fas fa-bullhorn"></i><h3>Marketing</h3><p>Campagnes ciblées, SEO et branding.</p></div>
+<div class="card"><i class="fas fa-code"></i><h3>Développement Web & Mobile</h3><p>Applications, sites vitrines et e-commerce.</p></div>
+<div class="card"><i class="fas fa-paint-brush"></i><h3>Design & Infographie</h3><p>Logos, UI/UX, chartes graphiques.</p></div>
+<div class="card"><i class="fas fa-lock"></i><h3>Sécurité Informatique</h3><p>Protection des données et cybersécurité.</p></div>
+<div class="card"><i class="fas fa-bullhorn"></i><h3>Marketing Digital</h3><p>SEO, community management, branding.</p></div>
 </div>
 </section>
 
+<!-- PORTFOLIO -->
 <section id="portfolio" class="section visible">
-<h2>Portfolio</h2>
+<h2>Projets Réalisés</h2>
 <div class="portfolio-slider">
 <div class="slides-wrapper">
-<div class="slide"><h3>Site e-commerce</h3><img src="https://i.ytimg.com/vi/KiPXwL48RNs/hqdefault.jpg" alt="E-commerce"></div>
-<div class="slide"><h3>Application mobile</h3><img src="https://emileag228.github.io/AmiBa-Informactic/amibachat.jpg" alt="App mobile"></div>
-<div class="slide"><h3>Logo & Charte</h3><img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg" alt="Logo"></div>
+<div class="slide">
+<h3>Site e-commerce</h3>
+<p>Boutique en ligne sécurisée pour un client local.</p>
+<img src="https://i.ytimg.com/vi/KiPXwL48RNs/hqdefault.jpg" alt="Site e-commerce"/>
+</div>
+<div class="slide">
+<h3>Application AmiBa Chat</h3>
+<p>Application mobile de messagerie locale rapide et sécurisée.</p>
+<img src="https://emileag228.github.io/AmiBa-Informactic/amibachat.jpg" alt="AmiBa Chat"/>
+</div>
+<div class="slide">
+<h3>Logo & Branding</h3>
+<p>Designs professionnels pour entreprises modernes.</p>
+<img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg" alt="Logo & Branding"/>
+</div>
 </div>
 </div>
 </section>
 
+<!-- TEAM -->
+<section id="team" class="section visible">
+<h2>Notre Équipe</h2>
+<div class="team-grid">
+<div class="team-member">
+<img src="https://via.placeholder.com/220" alt="Membre équipe 1">
+<div class="team-info">
+<h3>Kossi T.</h3>
+<h4>Développeur Senior</h4>
+<p>Spécialiste backend et applications web complexes.</p>
+</div>
+</div>
+<div class="team-member">
+<img src="https://via.placeholder.com/220" alt="Membre équipe 2">
+<div class="team-info">
+<h3>Nadia A.</h3>
+<h4>Graphiste / UI Designer</h4>
+<p>Création de chartes graphiques et UI/UX modernes.</p>
+</div>
+</div>
+<div class="team-member">
+<img src="https://via.placeholder.com/220" alt="Membre équipe 3">
+<div class="team-info">
+<h3>Didier L.</h3>
+<h4>Spécialiste Marketing</h4>
+<p>Community management, campagnes digitales et branding.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="section visible">
 <h2>Contactez-nous</h2>
 <form onsubmit="event.preventDefault(); alert('Message envoyé !');">
-<input type="text" placeholder="Votre nom" required>
-<input type="email" placeholder="Votre email" required>
+<input type="text" placeholder="Votre nom" required />
+<input type="email" placeholder="Votre email" required />
 <textarea placeholder="Votre message" rows="5" required></textarea>
 <button type="submit">Envoyer</button>
 </form>
 </section>
-<section id="founder" class="section visible">
-<div class="founder">
-<img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_0021-1.jpg" alt="Photo Emile AG">
-<div class="founder-info">
-<h3>EMILE AG</h3>
-<h4>Fondateur & CEO de AmiBa Groupe</h4>
-<p>AmiBa Groupe est une entreprise innovante spécialisée dans le développement web, mobile et les solutions digitales modernes pour l’Afrique de l’Ouest. Nous créons des applications, sites web, services de cybersécurité et stratégies marketing adaptées aux besoins de nos clients.</p>
-<p>Découvrez nos projets et contenus sur notre chaîne YouTube : <a href="https://www.youtube.com/@emileag228" target="_blank" style="color:#e50914;font-weight:bold;">https://www.youtube.com/@emileag228</a></p>
-</div>
-</div>
-</section>
 
-
+<!-- FOOTER -->
 <footer>
 <p>&copy; 2025 AmiBa Groupe | Tous droits réservés</p>
-<p>Contact : <a href="mailto:emileagbabli7@gmail.com">emileagbabli7@gmail.com</a></p>
+<p>Contact : <a href="mailto:emileagbabli7@gmail.com">emileagbabli7@gmail.com</a> | Tél : +228 93 89 69 72 / 96 36 37 60</p>
 </footer>
 
 <script>
-// ==== PARTICULES ====
-const canvas=document.getElementById('particles');const ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;
-let particlesArray=[];
-class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=Math.random()*1-0.5;this.speedY=Math.random()*1-0.5;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height;}draw(){ctx.fillStyle='#e50914';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
-function initParticles(){particlesArray=[];for(let i=0;i<150;i++){particlesArray.push(new Particle());}}function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
-initParticles();animateParticles();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;initParticles();});
+// THEME TOGGLE
+const toggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
+const currentTheme = localStorage.getItem('theme') || 'dark';
+if(currentTheme==='light'){body.classList.add('light'); toggleBtn.textContent='Mode Sombre';} 
+toggleBtn.addEventListener('click',()=>{
+if(body.classList.contains('light')){body.classList.remove('light'); toggleBtn.textContent='Mode Clair'; localStorage.setItem('theme','dark');} 
+else{body.classList.add('light'); toggleBtn.textContent='Mode Sombre'; localStorage.setItem('theme','light');}});
 
-// ==== THEME TOGGLE ====
-const toggleBtn=document.getElementById('theme-toggle');const body=document.body;
-const currentTheme=localStorage.getItem('theme')||'dark';
-if(currentTheme==='light'){body.classList.add('light');toggleBtn.textContent='Mode Sombre';}else{toggleBtn.textContent='Mode Clair';}
-toggleBtn.addEventListener('click',()=>{body.classList.toggle('light');toggleBtn.textContent=body.classList.contains('light')?'Mode Sombre':'Mode Clair';localStorage.setItem('theme',body.classList.contains('light')?'light':'dark');});
-
-// ==== SCROLL FADE-IN ====
-const sections=document.querySelectorAll('section.section');
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}})},{threshold:0.15});
+// FADE IN SCROLL
+const sections = document.querySelectorAll('section.visible');
+const observer = new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}})},{threshold:0.15});
 sections.forEach(section=>observer.observe(section));
 </script>
+
 </body>
 </html>
