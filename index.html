@@ -2,332 +2,371 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="AmiBa Groupe – Solutions digitales modernes africaines">
-<title>AmiBa Groupe Officiel</title>
-
-<link rel="icon" href="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<title>AmiBa Groupe | Red Gamer Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 <style>
-/* ================= RESET ================= */
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-font-family:Poppins,sans-serif;
-background:#0f0f0f;
-color:#eee;
-line-height:1.6;
-transition:.4s
-}
-body.light{background:#fff;color:#222}
+/* =====================================================
+   RESET & BASE
+===================================================== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#040404;color:#fff;overflow-x:hidden;position:relative;}
+a{color:inherit;text-decoration:none;}
 
-/* ================= GLOBAL ================= */
-.container{max-width:1100px;margin:auto;padding:0 1rem}
-.section{padding:4rem 0;opacity:0;transform:translateY(30px);transition:.8s}
-.section.visible{opacity:1;transform:none}
-h2{text-align:center;color:#e50914;margin-bottom:2rem;font-size:2.2rem}
+/* =====================================================
+   LOADER
+===================================================== */
+#loader{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;}
+.loader-circle{width:80px;height:80px;border:6px solid rgba(255,0,0,.2);border-top:6px solid red;border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
 
-/* ================= HEADER ================= */
-header{
-position:sticky;top:0;z-index:1000;
-background:#000;
-border-bottom:3px solid #e50914
-}
-.header-inner{
-display:flex;justify-content:space-between;align-items:center;
-padding:1rem 2rem
-}
-header h1{color:#e50914;font-weight:800;letter-spacing:2px}
-nav a{
-color:#eee;text-decoration:none;font-weight:600;
-margin-left:1.4rem
-}
-nav a:hover{color:#e50914}
-.download-btn{
-background:#e50914;
-padding:.5rem 1rem;
-border-radius:20px;
-color:#fff!important
-}
-#theme-toggle{
-margin-left:1rem;
-background:none;
-border:2px solid #e50914;
-color:#e50914;
-padding:.4rem 1rem;
-border-radius:20px;
-cursor:pointer
-}
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-thumb{background:red;border-radius:10px;}
 
-/* ================= ABOUT ================= */
-.about p{
-max-width:900px;
-margin:auto;
-text-align:center;
-color:#ccc;
-font-size:1.1rem
-}
-body.light .about p{color:#444}
+/* =====================================================
+   PARTICLES BACKGROUND
+===================================================== */
+#particles{position:fixed;inset:0;z-index:-1;}
 
-/* ================= FOUNDER ================= */
-.founder-box{
-display:flex;
-flex-wrap:wrap;
-gap:2rem;
-background:#1a1a1a;
-padding:2rem;
-border-radius:15px;
-box-shadow:0 0 25px #e5091477
-}
-body.light .founder-box{background:#f7f7f7}
-.founder-box img{
-width:220px;
-border-radius:50%;
-border:4px solid #e50914
-}
-.founder-info h3{color:#e50914;font-size:2rem}
-.founder-info h4{color:#aaa;margin-bottom:1rem}
-.founder-info p{color:#ccc}
-body.light .founder-info p{color:#444}
+/* =====================================================
+   HEADER
+===================================================== */
+header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(0,0,0,0.85);display:flex;justify-content:space-between;align-items:center;padding:15px 40px;border-bottom:2px solid red;backdrop-filter:blur(6px);}
+.logo img{height:50px;border-radius:12px;}
+nav a{color:#fff;margin-left:20px;text-decoration:none;position:relative;font-weight:500;}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:red;transition:.3s;}
+nav a:hover::after,nav a.active::after{width:100%;}
 
-/* ================= APPLICATIONS ================= */
-.apps-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:2rem
-}
-.app-card{
-background:#111;
-border:2px solid #8B0000;
-border-radius:16px;
-padding:2rem;
-text-align:center;
-box-shadow:0 0 20px rgba(229,9,20,.4);
-transition:.3s
-}
-.app-card:hover{transform:translateY(-8px)}
-.app-card i{font-size:3rem;color:#e50914}
-.app-card h3{margin:.8rem 0;color:#fff}
-.app-card p{color:#ccc;font-size:.95rem}
-.app-card a button{
-margin-top:1rem;
-background:#8B0000;
-border:2px solid #000;
-color:#fff;
-padding:.6rem 1.6rem;
-border-radius:25px;
-font-weight:700;
-cursor:pointer;
-transition:.3s
-}
-.app-card a button:hover{
-background:#000;
-color:#ff0000
-}
+/* =====================================================
+   HERO
+===================================================== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:radial-gradient(circle at top,rgba(255,0,0,.25),transparent 60%),linear-gradient(180deg,#000,#090909);}
+.hero h1{font-size:52px;color:red;text-shadow:0 0 30px red;animation:textGlow 1.5s infinite alternate;}
+@keyframes textGlow{0%{text-shadow:0 0 30px red;}100%{text-shadow:0 0 60px #ff2a2a;}}
+.hero p{margin:15px 0;font-size:19px;opacity:.9;}
+.btn{padding:14px 36px;background:red;color:#000;font-weight:bold;border-radius:30px;text-decoration:none;box-shadow:0 0 25px red;transition:.3s;}
+.btn:hover{background:#ff2a2a;box-shadow:0 0 40px red;transform:scale(1.05);}
 
-/* ================= SERVICES ================= */
-.services-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:2rem
-}
-.card{
-background:#222;
-padding:2rem;
-border-radius:15px;
-text-align:center;
-box-shadow:0 0 18px #e5091477;
-transition:.3s
-}
-.card:hover{transform:translateY(-10px)}
-.card i{font-size:2.8rem;color:#e50914}
-.card h3{margin:.8rem 0;color:#e50914}
-.card p{color:#ccc}
+/* =====================================================
+   SECTIONS
+===================================================== */
+section{padding:110px 40px;text-align:center;}
+h2{color:red;font-size:34px;margin-bottom:50px;text-shadow:0 0 15px red;}
 
-/* ================= TESTIMONIALS ================= */
-.testimonials-track{
-display:flex;
-gap:1.5rem;
-overflow-x:auto
-}
-.testimonials-track .card{
-min-width:300px;
-font-style:italic
-}
-.testimonials-track strong{
-display:block;
-margin-top:1rem;
-text-align:right;
-color:#e50914
-}
+/* =====================================================
+   BIO
+===================================================== */
+.bio{max-width:900px;margin:auto;background:#0b0b0b;padding:35px;border-left:4px solid red;box-shadow:0 0 25px rgba(255,0,0,.4);line-height:1.7;transition:all .5s;}
+.bio:hover{box-shadow:0 0 45px red;transform:scale(1.02);}
 
-/* ================= CONTACT ================= */
-form{
-max-width:500px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:1rem
-}
-input,textarea{
-padding:.8rem;
-border-radius:8px;
-border:2px solid #e50914;
-background:#222;
-color:#eee
-}
-button[type="submit"]{
-background:#e50914;
-border:none;
-padding:.8rem;
-border-radius:8px;
-color:#fff;
-font-weight:700
-}
+/* =====================================================
+   STATS
+===================================================== */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-top:50px;}
+.stat{background:#0b0b0b;border:1px solid red;border-radius:15px;padding:30px;box-shadow:0 0 20px rgba(255,0,0,.4);position:relative;transition:.4s;}
+.stat:hover{transform:scale(1.05);box-shadow:0 0 50px red;}
+.stat h3{font-size:40px;color:red;}
+.stat p{opacity:.8;}
+.stat::after{content:"🔥";position:absolute;top:-10px;right:-10px;font-size:24px;animation:statPulse 1s infinite alternate;}
+@keyframes statPulse{0%{transform:scale(1);}100%{transform:scale(1.3);}}
 
-/* ================= FOOTER ================= */
-footer{
-background:#111;
-border-top:3px solid #e50914;
-text-align:center;
-padding:1.5rem;
-color:#888
-}
-footer a{color:#e50914;text-decoration:none}
+/* =====================================================
+   SERVICES
+===================================================== */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;}
+.service{background:#0b0b0b;border:1px solid red;border-radius:15px;padding:30px;transition:.4s;box-shadow:0 0 20px rgba(255,0,0,.3);}
+.service:hover{transform:translateY(-12px) scale(1.05);box-shadow:0 0 45px red;}
+.service i{font-size:48px;color:red;margin-bottom:15px;}
 
-/* ================= RESPONSIVE ================= */
-@media(max-width:768px){
-.header-inner{flex-direction:column;gap:1rem}
-nav{text-align:center}
-.founder-box{flex-direction:column;text-align:center}
-}
+/* =====================================================
+   TEAM
+===================================================== */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;}
+.member{background:#0b0b0b;border:1px solid red;border-radius:50%;padding:20px;box-shadow:0 0 20px rgba(255,0,0,.3);overflow:hidden;transition:.4s;}
+.member img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:10px;border:3px solid red;}
+.member h3{color:red;transition:.3s;}
+.member:hover{transform:scale(1.05);box-shadow:0 0 45px red;}
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;}
+.project{background:#0b0b0b;border:1px solid red;border-radius:15px;overflow:hidden;box-shadow:0 0 25px rgba(255,0,0,.4);transition:.4s;}
+.project img{width:100%;transition:.4s;}
+.project:hover img{transform:scale(1.1);}
+.project h3{color:red;padding:10px 0;}
+
+/* =====================================================
+   GALLERY + LIGHTBOX
+===================================================== */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
+.gallery img{width:100%;border-radius:12px;cursor:pointer;border:1px solid red;transition:.3s;}
+.gallery img:hover{transform:scale(1.05);box-shadow:0 0 25px red;}
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:2000;}
+#lightbox img{max-width:90%;max-height:90%;box-shadow:0 0 40px red;border-radius:15px;}
+
+/* =====================================================
+   DOWNLOADS ZONE
+===================================================== */
+#downloads .filter-btns{margin-bottom:40px;}
+.filter-btns button{padding:10px 20px;background:#111;border:1px solid red;color:red;margin:0 10px;border-radius:10px;cursor:pointer;transition:.3s;}
+.filter-btns button.active, .filter-btns button:hover{background:red;color:#000;box-shadow:0 0 25px red;}
+.downloads{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.download-card{background:#0b0b0b;border:1px solid red;border-radius:15px;padding:20px;box-shadow:0 0 20px rgba(255,0,0,.3);transition:.4s;position:relative;overflow:hidden;}
+.download-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 0 50px red;}
+.download-card img{width:100%;border-radius:12px;margin-bottom:15px;transition:.4s;}
+.download-card:hover img{transform:scale(1.05);}
+.download-card h3{color:red;margin-bottom:10px;}
+.download-card p{opacity:.8;margin-bottom:15px;}
+.download-card button{padding:12px 20px;background:red;color:#000;font-weight:bold;border:none;border-radius:10px;cursor:pointer;transition:.3s;}
+.download-card button:hover{background:#ff2a2a;box-shadow:0 0 30px red;}
+
+/* =====================================================
+   CONTACT
+===================================================== */
+form{max-width:450px;margin:auto;}
+input,textarea,button{width:100%;padding:14px;margin:12px 0;border:none;border-radius:10px;}
+input,textarea{background:#111;color:#fff;}
+button{background:red;color:#000;font-weight:bold;cursor:pointer;box-shadow:0 0 25px red;}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer{padding:30px;background:#000;border-top:2px solid red;text-align:center;}
+
+/* =====================================================
+   REVEAL
+===================================================== */
+.reveal{opacity:0;transform:translateY(60px);transition:1s;}
+.reveal.active{opacity:1;transform:none;}
 </style>
 </head>
 
 <body>
+<div id="loader"><div class="loader-circle"></div></div>
+<canvas id="particles"></canvas>
 
 <header>
-  <div class="header-inner">
-    <h1>AmiBa Groupe</h1>
-    <nav>
-      <a href="#founder">Fondateur</a>
-      <a href="#applications">Applications</a>
-      <a href="#services">Services</a>
-      <a href="#testimonials">Témoignages</a>
-      <a href="#contact">Contact</a>
-      <a class="download-btn" href="https://emileag228.github.io/AmiBa-Informactic/">Télécharger</a>
-      <button id="theme-toggle">Mode Clair</button>
-    </nav>
-  </div>
+  <div class="logo"><img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_0227-1.jpg?w=614" alt="Logo"></div>
+  <nav>
+    <a href="#home">Accueil</a>
+    <a href="#bio">À propos</a>
+     <a href="https://emileag228.github.io/AmiBa-Informactic/">AmiBa Chat</a>
+    <a href="#services">Services</a>
+    <a href="#stats">Statistiques</a>
+    <a href="#team">Personnel</a>
+    <a href="#projects">Projets</a>
+    <a href="#gallery">Galerie</a>
+    <a href="#downloads">Téléchargements</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<section id="about" class="section visible">
-  <div class="container about">
-    <h2>AmiBa Groupe</h2>
-    <p>
-      AmiBa Groupe est un collectif technologique togolais engagé dans le développement
-      de solutions digitales modernes, accessibles et adaptées au contexte africain.
-    </p>
-  </div>
+<section class="hero" id="home">
+  <h1>AmiBa Groupe</h1>
+  <p>Entreprise togolaise de technologie & transformation digitale</p>
+  <a href="#downloads" class="btn">Télécharger des logiciels</a>
 </section>
 
-<section id="founder" class="section">
-  <div class="container founder-box">
-    <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_0021-1.jpg" alt="EMILE AG">
-    <div class="founder-info">
-      <h3>EMILE AG</h3>
-      <h4>Fondateur & CEO</h4>
-      <p>
-        Développeur web & mobile togolais, étudiant en réseaux informatiques,
-        créateur de AmiBa Chat et promoteur de solutions numériques africaines.
-      </p>
-    </div>
-  </div>
+<section id="bio" class="reveal">
+<h2>Biographie</h2>
+<div class="bio">
+AmiBa Groupe est une entreprise togolaise spécialisée dans la technologie, l’ingénierie numérique et la transformation digitale. Elle développe des solutions modernes, accessibles et adaptées au contexte africain.
+</div>
 </section>
 
-<section id="applications" class="section">
-  <div class="container">
-    <h2>Nos Applications</h2>
-    <div class="apps-grid">
-      <div class="app-card">
-        <i class="fas fa-comments"></i>
-        <h3>AmiBa Chat</h3>
-        <p>Messagerie moderne et sécurisée.</p>
-        <a href="https://emileag228.github.io/AmiBa-Informactic/"><button>Ouvrir</button></a>
-      </div>
-      <div class="app-card">
-        <i class="fas fa-store"></i>
-        <h3>AmiBa Market</h3>
-        <p>Marketplace en ligne.</p>
-        <a href="http://amiba.onlinewebshop.net/"><button>Accéder</button></a>
-      </div>
-      <div class="app-card">
-        <i class="fas fa-futbol"></i>
-        <h3>Live Foot TV</h3>
-        <p>Football en direct.</p>
-        <a href="https://emileag228.github.io/liveFootTv/"><button>Regarder</button></a>
-      </div>
-    </div>
-  </div>
+<section id="stats" class="reveal">
+<h2>Statistiques</h2>
+<div class="stats">
+  <div class="stat"><h3 data-count="120">0</h3><p>Projets réalisés</p></div>
+  <div class="stat"><h3 data-count="85">0</h3><p>Clients satisfaits</p></div>
+  <div class="stat"><h3 data-count="10">0</h3><p>Années d'expérience</p></div>
+  <div class="stat"><h3 data-count="24">0</h3><p>Support 24/7</p></div>
+</div>
 </section>
 
-<section id="services" class="section">
-  <div class="container">
-    <h2>Nos Services</h2>
-    <div class="services-grid">
-      <div class="card"><i class="fas fa-code"></i><h3>Développement</h3><p>Web & mobile</p></div>
-      <div class="card"><i class="fas fa-paint-brush"></i><h3>Design</h3><p>UI/UX & infographie</p></div>
-      <div class="card"><i class="fas fa-lock"></i><h3>Sécurité</h3><p>Protection & audits</p></div>
-      <div class="card"><i class="fas fa-bullhorn"></i><h3>Marketing</h3><p>SEO & branding</p></div>
-    </div>
-  </div>
+<section id="services" class="reveal">
+<h2>Services</h2>
+<div class="services">
+  <div class="service"><i class='bx bx-code'></i><h3>Développement Web</h3></div>
+  <div class="service"><i class='bx bx-mobile'></i><h3>Applications</h3></div>
+  <div class="service"><i class='bx bx-network-chart'></i><h3>Réseaux</h3></div>
+  <div class="service"><i class='bx bx-bolt'></i><h3>Électricité</h3></div>
+</div>
 </section>
 
-<section id="testimonials" class="section">
-  <div class="container">
-    <h2>Témoignages</h2>
-    <div class="testimonials-track">
-      <div class="card">“Excellent service.”<strong>- Kossi</strong></div>
-      <div class="card">“Très professionnel.”<strong>- Nadia</strong></div>
-      <div class="card">“Application fluide.”<strong>- Didier</strong></div>
-    </div>
+<section id="team" class="reveal">
+<h2>Personnel</h2>
+<div class="team">
+  <div class="member">
+    <img src="https://tse2.mm.bing.net/th/id/OIP.x9dSg0L7dJHEAvjEUX4IegHaHI?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Membre 1">
+    <h3>EMILE AG</h3>
+    <p>Directeur Technique</p>
   </div>
+  <div class="member">
+    <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg" alt="Membre 2">
+    <h3>Error 404</h3>
+    <p>Error 404</p>
+  </div>
+  <div class="member">
+    <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg" alt="Membre 3">
+    <h3>Error 404</h3>
+    <p>Error 404</p>
+  </div>
+</div>
 </section>
 
-<section id="contact" class="section">
-  <div class="container">
-    <h2>Contact</h2>
-    <form onsubmit="event.preventDefault();alert('Message envoyé !')">
-      <input placeholder="Nom" required>
-      <input type="email" placeholder="Email" required>
-      <textarea rows="5" placeholder="Message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
+<section id="projects" class="reveal">
+<h2>Projets Réalisés</h2>
+<div class="projects">
+  <div class="project">
+    <img src="https://emileag228.github.io/AmiBa-Informactic/amibachat.jpg" alt="Projet 1">
+    <h3>AmiBa Chat</h3>
   </div>
+  <div class="project">
+    <img src="data:image/webp;base64,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" alt="Projet 2">
+    <h3>AmiBa MarketPlace</h3>
+  </div>
+  <div class="project">
+    <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg" alt="Projet 3">
+    <h3>Projet Digital 3</h3>
+  </div>
+</div>
 </section>
 
-<footer>
-  <p>© 2025 AmiBa Groupe</p>
-  <p><a href="mailto:emileagbabli7@gmail.com">emileagbabli7@gmail.com</a></p>
-</footer>
+<section id="gallery" class="reveal">
+<h2>Galerie</h2>
+<div class="gallery">
+  <img src="data:image/jpeg;base64,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" alt="Image 1">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsZotlQQETN61OZh8PGzO50A7ZHakJiWuJw&s" alt="Image 2">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkL68cIdSm-09nQ5H_GYWjiXgqKkJA4zqf_Q&s" alt="Image 3">
+  <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img-20240607-wa0020_original-1.jpg?w=768" alt="Image 4">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwoz5WrJ7xuCqOyMkAVY6YsFjrKsUXGHSBuQ&s" alt="Image 5">
+<img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_20231106_090354_original-1.jpg?w=716" alt="Image 5">
+<img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/img_1347.jpg?w=1024" alt="Image 5">
+<img src="https://videos.files.wordpress.com/bx8FGzMO/v09044g40000csalvhnog65tu8v0ir10-1_mp4_dvd.original.jpg" alt="Image 5">
+</div>
+<div id="lightbox"></div>
+</section>
+
+<section id="downloads" class="reveal">
+<h2>Téléchargements</h2>
+<div class="filter-btns">
+  <button class="active" data-filter="all">Tous</button>
+  <button data-filter="windows">Windows</button>
+  <button data-filter="android">Android</button>
+</div>
+<div class="downloads" id="download-grid">
+  <div class="download-card" data-platform="windows">
+    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3330/0000000520.1920x1080.jpg?t=1627918693">
+    <h3>Zuma</h3>
+    <p>Version: 1.0 | Windows</p>
+    <button> <a href="Zuma Deluxe Setup.exe" class="button">Télécharger</a> </button>
+  </div>
+  <div class="download-card" data-platform="android">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzL5ONW93FmW-BIu57CZlg7GasNqMLb0YCQ&s">
+    <h3>Application AmiBa Chat</h3>
+    <p>Version: 2.5 | Android</p>
+       <button> <a href="AmiBa Chat.apk" class="button">Télécharger</a> </button>
+  </div>
+  <div class="download-card" data-platform="windows">
+    <img src="https://www.kmspico.run/wp-content/uploads/Activation%20Guide.jpg">
+    <h3>KMS Pico </h3>
+    <p>Version: 3.2 | Windows</p>
+    <button> <a href="@kmspico_amiba-groupe.zip" class="button">Télécharger</a> </button>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="reveal">
+<h2>Contact</h2>
+<form>
+  <input placeholder="Nom">
+  <input placeholder="Email">
+  <textarea placeholder="Message"></textarea>
+  <button>Envoyer</button>
+</form>
+</section>
+
+<footer>© 2026 AmiBa Groupe — RED GAMER MODE</footer>
 
 <script>
-/* THEME */
-const btn=document.getElementById('theme-toggle');
-btn.onclick=()=>{
-document.body.classList.toggle('light');
-btn.textContent=document.body.classList.contains('light')?'Mode Sombre':'Mode Clair';
-};
+// LOADER
+window.onload=()=>document.getElementById("loader").style.display="none";
 
-/* SCROLL ANIMATION */
-const sections=document.querySelectorAll('.section');
-const obs=new IntersectionObserver(e=>{
-e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible'))
-},{threshold:.15});
-sections.forEach(s=>obs.observe(s));
+// REVEAL
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+  reveals.forEach(r=>{
+    if(r.getBoundingClientRect().top<window.innerHeight-100){
+      r.classList.add('active');
+    }
+  });
+});
+
+// COUNTERS
+document.querySelectorAll('[data-count]').forEach(el=>{
+  let max=+el.dataset.count,cur=0;
+  const inc=setInterval(()=>{
+    cur++; el.textContent=cur;
+    if(cur>=max)clearInterval(inc);
+  },30);
+});
+
+// LIGHTBOX
+const lb=document.getElementById("lightbox");
+document.querySelectorAll('.gallery img').forEach(img=>{
+  img.onclick=()=>{lb.style.display="flex";lb.innerHTML="<img src='"+img.src+"'>";}
+});
+if(lb)lb.onclick=()=>lb.style.display="none";
+
+// DOWNLOAD FILTER
+const filterBtns=document.querySelectorAll('.filter-btns button');
+const downloadCards=document.querySelectorAll('.download-card');
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter=btn.dataset.filter;
+    downloadCards.forEach(card=>{
+      if(filter==='all'||card.dataset.platform===filter){card.style.display='block';}
+      else{card.style.display='none';}
+    });
+  });
+});
+
+// PARTICLES RED
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+let W, H, particles=[];
+function initParticles(){
+  W=canvas.width=window.innerWidth;
+  H=canvas.height=window.innerHeight;
+  particles=[];
+  for(let i=0;i<100;i++){
+    particles.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*3+1,d:Math.random()*2});
+  }
+}
+function drawParticles(){
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle="red";
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2,false);
+    ctx.fill();
+    p.y+=p.d;
+    if(p.y>H)p.y=0;
+  });
+  requestAnimationFrame(drawParticles);
+}
+window.addEventListener("resize",initParticles);
+initParticles();
+drawParticles();
 </script>
-
 </body>
 </html>
