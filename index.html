@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>AmiBa Groupe | Red Gamer Services</title>
-<link rel="icon" type="image/jpeg" href="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
@@ -85,87 +84,6 @@ h2{color:red;font-size:34px;margin-bottom:50px;text-shadow:0 0 15px red;}
 .service i{font-size:48px;color:red;margin-bottom:15px;}
 
 /* =====================================================
-   WHATSAPP FLOAT BUTTON – RED GAMER
-===================================================== */
-
-#whatsapp-float{
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  z-index:3000;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 22px;
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#000;
-  font-weight:bold;
-  border-radius:50px;
-  box-shadow:
-    0 0 20px rgba(37,211,102,.7),
-    0 0 45px rgba(37,211,102,.5);
-  text-decoration:none;
-  transition:.4s ease;
-  overflow:hidden;
-}
-
-/* ICON */
-#whatsapp-float i{
-  font-size:34px;
-  color:#000;
-  animation:waPulse 1.4s infinite alternate;
-}
-
-/* TEXT */
-#whatsapp-float .wa-text{
-  white-space:nowrap;
-  font-size:14px;
-}
-
-/* HOVER EFFECT */
-#whatsapp-float:hover{
-  transform:scale(1.12) translateY(-6px);
-  box-shadow:
-    0 0 35px #25D366,
-    0 0 70px #25D366;
-}
-
-/* PULSE */
-@keyframes waPulse{
-  from{transform:scale(1);}
-  to{transform:scale(1.25);}
-}
-
-/* CYBER RIPPLE */
-#whatsapp-float::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50px;
-  border:2px solid rgba(255,255,255,.4);
-  animation:waRipple 1.8s infinite;
-}
-
-@keyframes waRipple{
-  0%{transform:scale(1);opacity:1;}
-  100%{transform:scale(1.5);opacity:0;}
-}
-
-/* MOBILE MODE */
-@media(max-width:600px){
-  #whatsapp-float{
-    padding:14px;
-    border-radius:50%;
-  }
-  #whatsapp-float .wa-text{
-    display:none;
-  }
-}
-
-
-
-   
-/* =====================================================
    TEAM
 ===================================================== */
 .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;}
@@ -226,6 +144,119 @@ footer{padding:30px;background:#000;border-top:2px solid red;text-align:center;}
 ===================================================== */
 .reveal{opacity:0;transform:translateY(60px);transition:1s;}
 .reveal.active{opacity:1;transform:none;}
+/* =====================================================
+   SOCIAL ZONE – RED GAMER
+===================================================== */
+
+.social-zone{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:30px;
+  position:relative;
+}
+
+/* CARD */
+.social-card{
+  background:linear-gradient(180deg,#0b0b0b,#050505);
+  border:1px solid red;
+  border-radius:20px;
+  padding:35px 25px;
+  box-shadow:
+    0 0 20px rgba(255,0,0,.25),
+    inset 0 0 15px rgba(255,0,0,.1);
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.45s ease;
+}
+
+/* NEON BORDER ANIMATION */
+.social-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  background:linear-gradient(120deg,transparent,red,transparent);
+  opacity:0;
+  transition:.5s;
+}
+
+.social-card:hover::before{
+  opacity:1;
+  animation:neonScan 2s linear infinite;
+}
+
+@keyframes neonScan{
+  0%{transform:translateX(-100%);}
+  100%{transform:translateX(100%);}
+}
+
+/* HOVER EFFECT */
+.social-card:hover{
+  transform:translateY(-15px) scale(1.06);
+  box-shadow:
+    0 0 45px red,
+    inset 0 0 25px rgba(255,0,0,.4);
+}
+
+/* ICON */
+.social-card i{
+  font-size:58px;
+  color:red;
+  margin-bottom:15px;
+  text-shadow:0 0 25px red;
+  animation:iconPulse 2s infinite alternate;
+}
+
+@keyframes iconPulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.12);}
+}
+
+/* TITLE */
+.social-card h3{
+  color:red;
+  font-size:22px;
+  margin-bottom:10px;
+  text-shadow:0 0 12px red;
+}
+
+/* TEXT */
+.social-card p{
+  font-size:14px;
+  opacity:.85;
+  line-height:1.6;
+}
+
+/* BUTTON */
+.social-card a{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 24px;
+  border-radius:30px;
+  background:red;
+  color:#000;
+  font-weight:bold;
+  box-shadow:0 0 25px red;
+  transition:.35s;
+}
+
+.social-card a:hover{
+  background:#ff2a2a;
+  box-shadow:0 0 45px red;
+  transform:scale(1.08);
+}
+
+/* SPECIAL COLOR PER PLATFORM */
+.social-card.youtube i{color:#ff0000;}
+.social-card.facebook i{color:#1877f2;}
+.social-card.tiktok i{color:#ff0050;}
+.social-card.email i{color:#00ffaa;}
+.social-card.phone i{color:#ffae00;}
+.social-card.location i{color:#00ffea;}
+
 </style>
 </head>
 
@@ -347,33 +378,33 @@ AmiBa Groupe est une entreprise togolaise spécialisée dans la technologie, l�
   <div class="download-card" data-platform="windows">
     <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3330/0000000520.1920x1080.jpg?t=1627918693">
     <h3>Zuma</h3>
-    <p>Version: exe | Windows</p>
+    <p>Version: 1.0 | Windows</p>
     <button> <a href="Zuma Deluxe Setup.exe" class="button">Télécharger</a> </button>
   </div>
    <div class="downloads" id="download-grid">
   <div class="download-card" data-platform="windows">
     <img src="https://tse4.mm.bing.net/th/id/OIP.I_QD6dPo5aiZffGEkR5DHAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3">
-    <h3>Matrice Code Java.</h3>
-    <p>Version: jdk | Windows</p>
-    <button> <a href="matrice.rar" class="button">Télécharger Code Matrice.rar</a> </button>
-    <button> <a href="https://emileag228.github.io/matrice/" class="button">Matrice Site Web</a> </button>
+    <h3>Matrice Code Java</h3>
+    <p>Version: 1.0 | Windows</p>
+    <button> <a href="matrice.rar" class="button">Télécharger</a> </button>
+    <button> <a href="https://emileag228.github.io/matrice/" class="button">Télécharger</a> </button>
   </div>
   <div class="download-card" data-platform="android">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwzL5ONW93FmW-BIu57CZlg7GasNqMLb0YCQ&s">
     <h3>Application AmiBa Chat</h3>
-    <p>Version: Apk | Android</p>
+    <p>Version: 2.5 | Android</p>
        <button> <a href="AmiBa Chat.apk" class="button">Télécharger</a> </button>
   </div>
   <div class="download-card" data-platform="windows">
     <img src="https://www.kmspico.run/wp-content/uploads/Activation%20Guide.jpg">
     <h3>KMS Pico </h3>
-    <p>Version: .rar | Windows</p>
+    <p>Version: 3.2 | Windows</p>
     <button> <a href="@kmspico_amiba-groupe.zip" class="button">Télécharger</a> </button>
   </div>
 </div>
 </section>
 
-<section id="sociaux">
+<section id="#">
 <div class="section-title">
     <h2>Réseaux & Contact</h2>
     <span>restez connectés</span>
@@ -447,6 +478,58 @@ document.querySelectorAll('[data-count]').forEach(el=>{
     if(cur>=max)clearInterval(inc);
   },30);
 });
+/* =====================================================
+   SOCIAL ZONE JS – RED GAMER
+===================================================== */
+
+// Hover sound (optionnel)
+const hoverSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-game-click-1114.mp3");
+hoverSound.volume = 0.4;
+
+// Click sound
+const clickSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-arcade-mechanical-bling-210.wav");
+clickSound.volume = 0.5;
+
+// Animate cards on hover
+document.querySelectorAll(".social-card").forEach(card => {
+
+  card.addEventListener("mouseenter", () => {
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+  });
+
+  card.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+    card.classList.add("clicked");
+    setTimeout(()=>card.classList.remove("clicked"),300);
+  });
+
+});
+
+// Scroll reveal for social cards
+const socialObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0) scale(1)";
+    }
+  });
+},{threshold:0.2});
+
+document.querySelectorAll(".social-card").forEach(card=>{
+  card.style.opacity="0";
+  card.style.transform="translateY(60px) scale(.9)";
+  card.style.transition="1s cubic-bezier(.19,1,.22,1)";
+  socialObserver.observe(card);
+});
+
+// Glow pulse loop
+setInterval(()=>{
+  document.querySelectorAll(".social-card").forEach(card=>{
+    card.classList.toggle("pulse");
+  });
+},2500);
 
 // LIGHTBOX
 const lb=document.getElementById("lightbox");
@@ -469,43 +552,6 @@ filterBtns.forEach(btn=>{
     });
   });
 });
-<script>
-/* =====================================================
-   WHATSAPP FLOAT JS – RED GAMER
-===================================================== */
-
-const waBtn = document.getElementById("whatsapp-float");
-
-// Son clic
-const waSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-game-click-1114.mp3");
-waSound.volume = 0.4;
-
-waBtn.addEventListener("mouseenter",()=>{
-  waBtn.style.filter = "brightness(1.2)";
-});
-
-waBtn.addEventListener("mouseleave",()=>{
-  waBtn.style.filter = "brightness(1)";
-});
-
-waBtn.addEventListener("click",()=>{
-  waSound.currentTime = 0;
-  waSound.play();
-});
-
-// Apparition après scroll
-waBtn.style.opacity="0";
-waBtn.style.transform="scale(.6)";
-
-window.addEventListener("scroll",()=>{
-  if(window.scrollY > 200){
-    waBtn.style.opacity="1";
-    waBtn.style.transform="scale(1)";
-    waBtn.style.transition="0.6s cubic-bezier(.19,1,.22,1)";
-  }
-});
-</script>
-
 
 // PARTICLES RED
 const canvas=document.getElementById("particles");
@@ -535,11 +581,5 @@ window.addEventListener("resize",initParticles);
 initParticles();
 drawParticles();
 </script>
-<!-- WHATSAPP FLOAT BUTTON -->
-<a href="https://wa.me/22893896972" target="_blank" id="whatsapp-float">
-  <i class='bx bxl-whatsapp'></i>
-  <span class="wa-text">Discuter sur WhatsApp</span>
-</a>
-
 </body>
 </html>
