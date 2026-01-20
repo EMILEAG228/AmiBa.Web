@@ -43,6 +43,85 @@ nav a{color:#fff;margin-left:20px;text-decoration:none;position:relative;font-we
 nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:red;transition:.3s;}
 nav a:hover::after,nav a.active::after{width:100%;}
 
+ /* =====================================================
+   WHATSAPP FLOAT BUTTON – RED GAMER
+===================================================== */
+
+#whatsapp-float{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:3000;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 22px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:#000;
+  font-weight:bold;
+  border-radius:50px;
+  box-shadow:
+    0 0 20px rgba(37,211,102,.7),
+    0 0 45px rgba(37,211,102,.5);
+  text-decoration:none;
+  transition:.4s ease;
+  overflow:hidden;
+}
+
+/* ICON */
+#whatsapp-float i{
+  font-size:34px;
+  color:#000;
+  animation:waPulse 1.4s infinite alternate;
+}
+
+/* TEXT */
+#whatsapp-float .wa-text{
+  white-space:nowrap;
+  font-size:14px;
+}
+
+/* HOVER EFFECT */
+#whatsapp-float:hover{
+  transform:scale(1.12) translateY(-6px);
+  box-shadow:
+    0 0 35px #25D366,
+    0 0 70px #25D366;
+}
+
+/* PULSE */
+@keyframes waPulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.25);}
+}
+
+/* CYBER RIPPLE */
+#whatsapp-float::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50px;
+  border:2px solid rgba(255,255,255,.4);
+  animation:waRipple 1.8s infinite;
+}
+
+@keyframes waRipple{
+  0%{transform:scale(1);opacity:1;}
+  100%{transform:scale(1.5);opacity:0;}
+}
+
+/* MOBILE MODE */
+@media(max-width:600px){
+  #whatsapp-float{
+    padding:14px;
+    border-radius:50%;
+  }
+  #whatsapp-float .wa-text{
+    display:none;
+  }
+}
+
+
 /* =====================================================
    HERO
 ===================================================== */
@@ -456,6 +535,12 @@ AmiBa Groupe est une entreprise togolaise spécialisée dans la technologie, l�
 </section>
 
 <footer>© 2026 AmiBa Groupe — RED GAMER MODE</footer>
+ <!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/22893896972" target="_blank" id="whatsapp-float">
+  <i class='bx bxl-whatsapp'></i>
+  <span class="wa-text">Discuter sur WhatsApp</span>
+</a>
+
 
 <script>
 // LOADER
@@ -580,7 +665,62 @@ function drawParticles(){
 }
 window.addEventListener("resize",initParticles);
 initParticles();
-drawParticles();
+drawParticles()
+/* =====================================================
+   WHATSAPP FLOAT JS – RED GAMER
+===================================================== */
+
+const waBtn = document.getElementById("whatsapp-float");
+
+// Son clic
+const waSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-game-click-1114.mp3");
+waSound.volume = 0.4;
+
+waBtn.addEventListener("mouseenter",()=>{
+  waBtn.style.filter = "brightness(1.2)";
+});
+
+waBtn.addEventListener("mouseleave",()=>{
+  waBtn.style.filter = "brightness(1)";
+});
+
+waBtn.addEventListener("click",()=>{
+  waSound.currentTime = 0;
+  waSound.play();
+});
+
+// Apparition après scroll
+waBtn.style.opacity="0";
+waBtn.style.transform="scale(.6)";
+
+window.addEventListener("scroll",()=>{
+  if(window.scrollY > 200){
+    waBtn.style.opacity="1";
+    waBtn.style.transform="scale(1)";
+    waBtn.style.transition="0.6s cubic-bezier(.19,1,.22,1)";
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 </script>
 </body>
 </html>
