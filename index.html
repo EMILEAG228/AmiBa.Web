@@ -139,6 +139,232 @@ button{background:red;color:#000;font-weight:bold;cursor:pointer;box-shadow:0 0 
 ===================================================== */
 footer{padding:30px;background:#000;border-top:2px solid red;text-align:center;}
 
+/* ================= WHATSAPP FLOAT BUTTON ================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #000;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 45px rgba(37, 211, 102, 0.9);
+}
+
+/* Icon */
+.wa-icon {
+  font-size: 26px;
+}
+
+/* Text */
+.wa-text {
+  font-size: 16px;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    padding: 14px;
+    border-radius: 50%;
+  }
+
+  .wa-text {
+    display: none;
+  }
+
+  .wa-icon {
+    font-size: 28px;
+  }
+}
+/* ================= SOCIAL SECTION ================= */
+.social-section {
+  padding: 80px 20px;
+  background: #050505;
+  text-align: center;
+}
+
+.social-section h2 {
+  color: #ff0000;
+  font-size: 32px;
+  margin-bottom: 50px;
+  text-shadow: 0 0 15px red;
+}
+
+/* Container */
+.social-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Card */
+.social-card {
+  background: #0e0e0e;
+  padding: 35px 25px;
+  border-radius: 18px;
+  border: 1px solid #ff0000;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover animation */
+.social-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 0 45px rgba(255, 0, 0, 0.7);
+}
+
+/* Icon */
+.social-card .icon {
+  font-size: 42px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+/* Titles */
+.social-card h3 {
+  color: #ff0000;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* Text */
+.social-card p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Individual colors */
+.youtube { border-color: #ff0000; }
+.facebook { border-color: #1877f2; }
+.tiktok { border-color: #00f2ea; }
+.instagram { border-color: #e1306c; }
+.email { border-color: #ffa500; }
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .social-section h2 {
+    font-size: 26px;
+  }
+
+  .social-card {
+    padding: 30px 20px;
+  }
+
+  .social-card .icon {
+    font-size: 38px;
+  }
+}
+/* ================= PRO LINKS SECTION ================= */
+.pro-section {
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #000, #080808);
+  text-align: center;
+}
+
+.pro-section h2 {
+  color: #ff0000;
+  font-size: 32px;
+  margin-bottom: 45px;
+  text-shadow: 0 0 18px red;
+}
+
+/* Container */
+.pro-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.pro-card {
+  width: 280px;
+  background: #0e0e0e;
+  border-radius: 20px;
+  padding: 35px 25px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+/* Hover */
+.pro-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 0 50px rgba(255, 0, 0, 0.7);
+}
+
+/* Icon */
+.pro-icon {
+  font-size: 50px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Titles */
+.pro-card h3 {
+  color: #ff0000;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* Text */
+.pro-card p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+
+/* Button */
+.pro-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: red;
+  color: #000;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Specific colors */
+.github { border: 1px solid #fff; }
+.portfolio { border: 1px solid #ff0000; }
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .pro-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .pro-section h2 {
+    font-size: 26px;
+  }
+}
+
+
+
+
 /* =====================================================
    REVEAL
 ===================================================== */
@@ -290,6 +516,63 @@ AmiBa Groupe est une entreprise togolaise spécialisée dans la technologie, l�
 </div>
 </section>
 
+<section class="social-section" id="reseaux">
+  <h2>Nos Réseaux Sociaux</h2>
+
+  <div class="social-container">
+    <a href="https://www.youtube.com/@emileag228" class="social-card youtube" target="_blank">
+      <span class="icon">▶</span>
+      <h3>YouTube</h3>
+      <p>Vidéos, tutoriels et collaborations</p>
+    </a>
+
+    <a href="https://web.facebook.com/emileagbabli228/?_rdc=1&_rdr#" class="social-card facebook" target="_blank">
+      <span class="icon">f</span>
+      <h3>Facebook</h3>
+      <p>Actualités & communauté</p>
+    </a>
+
+    <a href="https://www.tiktok.com/@amibagroupe7" class="social-card tiktok" target="_blank">
+      <span class="icon">♪</span>
+      <h3>TikTok</h3>
+      <p>Contenus courts & créatifs</p>
+    </a>
+
+    <a href="https://www.instagram.com/emileag.228/" class="social-card instagram" target="_blank">
+      <span class="icon">📷</span>
+      <h3>Instagram</h3>
+      <p>Images & stories</p>
+    </a>
+
+    <a href="mailto:emileagbabli7@gmail.com" class="social-card email">
+      <span class="icon">✉</span>
+      <h3>Email</h3>
+      <p>Contact professionnel</p>
+    </a>
+  </div>
+</section>
+<section class="pro-section" id="pro-links">
+  <h2>Présence Professionnelle</h2>
+
+  <div class="pro-container">
+    <!-- GitHub -->
+    <a href="https://github.com/EMILEAG" target="_blank" class="pro-card github">
+      <span class="pro-icon">🐙</span>
+      <h3>GitHub</h3>
+      <p>Projets open-source et codes</p>
+      <span class="pro-btn">Voir le profil</span>
+    </a>
+
+    <!-- Portfolio -->
+    <a href="https://emileag228.github.io/emileag-portfolio/" target="_blank" class="pro-card portfolio">
+      <span class="pro-icon">💼</span>
+      <h3>Portfolio</h3>
+      <p>Réalisations & compétences</p>
+      <span class="pro-btn">Visiter</span>
+    </a>
+  </div>
+</section>
+
 <section id="contact" class="reveal">
 <h2>Contact</h2>
 <form>
@@ -301,8 +584,35 @@ AmiBa Groupe est une entreprise togolaise spécialisée dans la technologie, l�
 </section>
 
 <footer>© 2026 AmiBa Groupe — RED GAMER MODE</footer>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/22893896972" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
+  <span class="wa-text">WhatsApp</span>
+  <i class="wa-icon">💬</i>
+</a>
+
 
 <script>
+
+
+
+
+  const proCards = document.querySelectorAll('.pro-card');
+
+  const observerPro = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.3 });
+
+  proCards.forEach(card => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    observerPro.observe(card);
+  });
+
 // LOADER
 window.onload=()=>document.getElementById("loader").style.display="none";
 
@@ -359,6 +669,24 @@ function initParticles(){
     particles.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*3+1,d:Math.random()*2});
   }
 }
+
+  const cards = document.querySelectorAll('.social-card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    observer.observe(card);
+  });
+
 function drawParticles(){
   ctx.clearRect(0,0,W,H);
   ctx.fillStyle="red";
