@@ -65,6 +65,85 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1a1a1a; }
         ::-webkit-scrollbar-thumb { background: var(--amiba-red); border-radius: 10px; }
+        /* Section Projets */
+#projets {
+  padding: 50px 20px;
+  background: #f9f9f9;
+}
+
+#projets h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.projet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
+}
+
+.projet img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.projet:hover {
+  transform: scale(1.05);
+}
+
+.projet h3 {
+  margin-top: 15px;
+  color: #0077cc;
+}
+
+.projet p {
+  max-width: 600px;
+  text-align: center;
+  color: #555;
+}
+
+/* Section Téléchargements */
+#telechargements {
+  padding: 50px 20px;
+  background: #fff;
+}
+
+#telechargements h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+#telechargements ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#telechargements li {
+  background: #f0f0f0;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+#telechargements li:hover {
+  background: #dceeff;
+}
+
+#telechargements a {
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
+}
     </style>
 </head>
 <body>
@@ -139,6 +218,20 @@
             </div>
         </div>
     </section>
+    <section id="projets">
+  <h2>Projets Réalisés</h2>
+  <div class="projet">
+    <img src="images/projet1.jpg" alt="Capture du projet 1">
+    <h3>Plateforme de Paiement</h3>
+    <p>Intégration de PayGate avec Moov Money, TMoney et PayPal, incluant un tableau de bord dynamique pour le suivi des transactions.</p>
+  </div>
+  <div class="projet">
+    <img src="images/projet2.jpg" alt="Capture du projet 2">
+    <h3>Site Web Professionnel</h3>
+    <p>Développement d’un site vitrine moderne et responsive pour la présentation des services IT et design.</p>
+  </div>
+  <!-- Ajoute d’autres projets selon ton portfolio -->
+</section>
 
     <!-- 4. SECTION STATISTIQUES -->
     <section id="stats" class="py-20 bg-rose-600 text-white overflow-hidden">
@@ -266,6 +359,27 @@
             alert('Merci ! Votre message a bien été envoyé. Nous vous contacterons bientôt.');
             this.reset();
         });
+        // Animation d’apparition des projets
+document.addEventListener("DOMContentLoaded", () => {
+  const projets = document.querySelectorAll(".projet");
+  projets.forEach((projet, index) => {
+    projet.style.opacity = 0;
+    projet.style.transform = "translateY(50px)";
+    setTimeout(() => {
+      projet.style.transition = "all 0.8s ease";
+      projet.style.opacity = 1;
+      projet.style.transform = "translateY(0)";
+    }, index * 300); // effet décalé
+  });
+});
+
+// Confirmation de téléchargement
+const liens = document.querySelectorAll("#telechargements a");
+liens.forEach(lien => {
+  lien.addEventListener("click", (e) => {
+    alert("Téléchargement de " + lien.textContent + " en cours...");
+  });
+});
     </script>
 </body>
 </html>
