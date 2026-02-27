@@ -144,6 +144,36 @@
   color: #0077cc;
   font-weight: bold;
 }
+
+/* Container header */
+.services-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 20px;
+}
+
+/* Logo */
+.logo-services {
+  width: 60px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Effet hover sur le logo */
+.logo-services:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+/* Titre */
+.services-header h2 {
+  font-size: 1.8em;
+  color: #0077cc;
+  margin: 0;
+}
     </style>
 </head>
 <body>
@@ -171,6 +201,9 @@
 
         <div class="text-center z-10 px-4" data-aos="zoom-out" data-aos-duration="1500">
             <h1 class="text-6xl md:text-9xl font-extrabold mb-6 tracking-tight">
+                 <img src="https://amibagroue.wordpress.com/wp-content/uploads/2024/12/image.jpg" 
+         alt="Logo AmiBa" class="logo-services">
+
                 VOTRE VISION, <br> <span class="text-rose-600 italic">NOTRE CODE.</span>
             </h1>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
@@ -385,6 +418,18 @@ liens.forEach(lien => {
   lien.addEventListener("click", (e) => {
     alert("Téléchargement de " + lien.textContent + " en cours...");
   });
+});
+// Animation du logo au chargement
+document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.querySelector(".logo-services");
+  logo.style.opacity = 0;
+  logo.style.transform = "translateX(-30px)";
+  
+  setTimeout(() => {
+    logo.style.transition = "all 0.8s ease";
+    logo.style.opacity = 1;
+    logo.style.transform = "translateX(0)";
+  }, 300);
 });
     </script>
 </body>
