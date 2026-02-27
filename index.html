@@ -1,100 +1,268 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AmiBa Groupe | Excellence Numérique</title>
+    <title>AmiBa Groupe | Excellence & Innovation</title>
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Bibliothèques Externes -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; background-color: #000; color: #fff; }
-        .text-red-primary { color: #E11D48; }
-        .bg-red-primary { background-color: #E11D48; }
-        .border-red-primary { border-color: #E11D48; }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+        :root {
+            --amiba-red: #E11D48;
+            --amiba-black: #0F0F0F;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--amiba-black);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Effet de glassmorphism */
         .glass {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .service-card:hover {
-            border-bottom: 4px solid #E11D48;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
+        /* Animation de soulignement rouge */
+        .nav-link {
+            position: relative;
         }
-
-        .hero-gradient {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
         .nav-link::after {
             content: '';
-            display: block;
+            position: absolute;
             width: 0;
             height: 2px;
-            background: #E11D48;
-            transition: width .3s;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--amiba-red);
+            transition: width 0.3s ease;
         }
-        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Image d'équipe noir et blanc vers couleur */
+        .team-card img {
+            filter: grayscale(100%);
+            transition: all 0.5s ease;
+        }
+        .team-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: var(--amiba-red); border-radius: 10px; }
     </style>
 </head>
-<body class="bg-black text-white">
+<body>
 
-    <!-- NAVIGATION -->
-    <nav class="fixed w-full z-50 glass py-4 px-6 flex justify-between items-center">
-        <div class="text-2xl font-900 tracking-tighter">
-            <span class="text-white">AmiBa</span><span class="text-red-primary">GROUPE</span>
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-2xl font-extrabold tracking-tighter">
+            AMIBA<span class="text-rose-600">GROUPE</span>
         </div>
-        <div class="hidden md:flex space-x-8 font-medium">
+        <div class="hidden md:flex space-x-8 items-center font-medium uppercase text-sm tracking-widest">
             <a href="#accueil" class="nav-link">Accueil</a>
             <a href="#services" class="nav-link">Services</a>
-            <a href="#stats" class="nav-link">Impact</a>
             <a href="#equipe" class="nav-link">Équipe</a>
-            <a href="#temoignages" class="nav-link">Témoignages</a>
-            <a href="#contact" class="nav-link px-4 py-2 bg-red-primary rounded text-white hover:bg-white hover:text-red-primary transition">Contact</a>
+            <a href="#contact" class="bg-rose-600 hover:bg-white hover:text-rose-600 transition px-6 py-2 rounded-full text-white">Contact</a>
         </div>
-        <button class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
     </nav>
 
-    <!-- SECTION 1: ACCUEIL (HERO) -->
-    <section id="accueil" class="h-screen hero-gradient flex items-center justify-center text-center px-4">
-        <div data-aos="fade-up" data-aos-duration="1000">
-            <h1 class="text-5xl md:text-8xl font-black mb-4">L'INNOVATION <span class="text-red-primary">SANS LIMITES</span></h1>
-            <p class="text-gray-300 text-lg md:text-2xl max-w-3xl mx-auto mb-8 font-light">
-                Nous façonnons le futur numérique de l'Afrique avec des solutions d'ingénierie et de transformation digitale de haute précision.
+    <!-- 2. SECTION ACCUEIL (HERO) -->
+    <section id="accueil" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-20 -left-20 w-72 h-72 bg-rose-600 rounded-full blur-[120px] opacity-20"></div>
+        <div class="absolute bottom-20 -right-20 w-72 h-72 bg-rose-600 rounded-full blur-[120px] opacity-20"></div>
+
+        <div class="text-center z-10 px-4" data-aos="zoom-out" data-aos-duration="1500">
+            <h1 class="text-6xl md:text-9xl font-extrabold mb-6 tracking-tight">
+                VOTRE VISION, <br> <span class="text-rose-600 italic">NOTRE CODE.</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+                Expertise en transformation digitale, développement haute performance et solutions réseaux pour les entreprises de demain.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#services" class="bg-red-primary px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition shadow-lg shadow-red-600/20">Nos Services</a>
-                <a href="#contact" class="border border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition">Parlons de votre projet</a>
+                <a href="#services" class="px-10 py-4 bg-rose-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(225,29,72,0.5)] transition-all">Découvrir nos services</a>
+                <a href="#contact" class="px-10 py-4 border border-white text-white font-bold rounded-xl hover:bg-white hover:text-black transition-all">Démarrer un projet</a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: SERVICES -->
-    <section id="services" class="py-24 px-6 md:px-20 bg-zinc-950">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-red-primary font-bold tracking-widest uppercase mb-2">Expertise</h2>
-            <h3 class="text-4xl md:text-5xl font-bold">Nos Solutions Sur Mesure</h3>
+    <!-- 3. SECTION SERVICES -->
+    <section id="services" class="py-24 px-6 md:px-20 bg-[#0a0a0a]">
+        <div class="mb-16">
+            <h2 class="text-rose-600 font-bold uppercase tracking-[0.3em] text-sm mb-4">Nos Compétences</h2>
+            <h3 class="text-4xl md:text-6xl font-extrabold">Solutions Digitales <br> de Haute Précision</h3>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="glass p-8 rounded-2xl service-card" data-aos="zoom-in" data-aos-delay="100">
-                <i class="fas fa-code text-4xl text-red-primary mb-6"></i>
-                <h4 class="text-2xl font-bold mb-4">Développement Web & Mobile</h4>
-                <p class="text-gray-400">Création d'applications intuitives et performantes pour propulser votre business sur tous les écrans.</p>
+            <!-- Card 1 -->
+            <div class="glass p-10 rounded-3xl hover:border-rose-600 transition-all duration-500 group" data-aos="fade-up">
+                <div class="w-16 h-16 bg-rose-600/10 flex items-center justify-center rounded-2xl mb-6 group-hover:bg-rose-600 transition-colors">
+                    <i class="fas fa-laptop-code text-2xl text-rose-600 group-hover:text-white"></i>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Dév. Logiciel</h4>
+                <p class="text-gray-400 leading-relaxed">Conception d'applications web et mobiles robustes adaptées à vos besoins spécifiques.</p>
             </div>
-            <!-- Service 2 -->
-            <div class="glass p-8 rounded-2xl service-card" data-aos="zoom-in" data-aos-delay="200">
-                <i class="fas fa-network-wired text-4xl text-red-primary mb-6
+            <!-- Card 2 -->
+            <div class="glass p-10 rounded-3xl hover:border-rose-600 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-rose-600/10 flex items-center justify-center rounded-2xl mb-6 group-hover:bg-rose-600 transition-colors">
+                    <i class="fas fa-network-wired text-2xl text-rose-600 group-hover:text-white"></i>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Réseaux & Télécom</h4>
+                <p class="text-gray-400 leading-relaxed">Infrastructure réseau sécurisée et maintenance pour une connectivité sans faille.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="glass p-10 rounded-3xl hover:border-rose-600 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-16 h-16 bg-rose-600/10 flex items-center justify-center rounded-2xl mb-6 group-hover:bg-rose-600 transition-colors">
+                    <i class="fas fa-bolt text-2xl text-rose-600 group-hover:text-white"></i>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Électricité</h4>
+                <p class="text-gray-400 leading-relaxed">Ingénierie électrique industrielle et solutions énergétiques durables.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECTION STATISTIQUES -->
+    <section id="stats" class="py-20 bg-rose-600 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+            <div data-aos="fade-down">
+                <span class="text-5xl font-extrabold block mb-2">+120</span>
+                <span class="uppercase text-sm tracking-widest opacity-80">Projets livrés</span>
+            </div>
+            <div data-aos="fade-down" data-aos-delay="100">
+                <span class="text-5xl font-extrabold block mb-2">45</span>
+                <span class="uppercase text-sm tracking-widest opacity-80">Clients Fidèles</span>
+            </div>
+            <div data-aos="fade-down" data-aos-delay="200">
+                <span class="text-5xl font-extrabold block mb-2">12</span>
+                <span class="uppercase text-sm tracking-widest opacity-80">Pays Atteints</span>
+            </div>
+            <div data-aos="fade-down" data-aos-delay="300">
+                <span class="text-5xl font-extrabold block mb-2">24/7</span>
+                <span class="uppercase text-sm tracking-widest opacity-80">Support Tech</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SECTION PERSONNEL (ÉQUIPE) -->
+    <section id="equipe" class="py-24 px-6 md:px-20">
+        <div class="text-center mb-16">
+            <h2 class="text-rose-600 font-bold mb-2">L'ÉQUIPE</h2>
+            <h3 class="text-4xl font-extrabold">Les Cerveaux derrière AmiBa</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+            <!-- Membre 1 -->
+            <div class="team-card group text-center" data-aos="fade-up">
+                <div class="relative overflow-hidden rounded-2xl mb-6 aspect-square">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Directeur" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-rose-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
+                        <a href="#"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#"><i class="fab fa-twitter text-2xl"></i></a>
+                    </div>
+                </div>
+                <h4 class="text-xl font-bold">Emile AGBABLI</h4>
+                <p class="text-rose-600 text-sm italic">Directeur Général / CEO</p>
+            </div>
+            <!-- Répétez pour d'autres membres avec des photos différentes -->
+        </div>
+    </section>
+
+    <!-- 6. TÉMOIGNAGES -->
+    <section id="temoignages" class="py-24 px-6 bg-zinc-900/50">
+        <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+            <i class="fas fa-quote-left text-5xl text-rose-600 mb-8"></i>
+            <p class="text-2xl md:text-3xl italic font-light mb-8 text-gray-200">
+                "AmiBa Groupe a transformé notre infrastructure IT en un temps record. Leur professionnalisme et leur réactivité sont exceptionnels."
+            </p>
+            <h5 class="text-lg font-bold">Jean Koffi</h5>
+            <p class="text-rose-600 text-sm uppercase tracking-widest">CEO, Digital Solutions Togo</p>
+        </div>
+    </section>
+
+    <!-- 7. CONTACT -->
+    <section id="contact" class="py-24 px-6 md:px-20 relative">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div data-aos="fade-right">
+                <h3 class="text-5xl font-extrabold mb-6 text-white">Prêt à <span class="text-rose-600">innover</span> ?</h3>
+                <p class="text-gray-400 mb-10">Contactez-nous pour une consultation gratuite ou pour discuter de votre prochain projet technologique.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 glass flex items-center justify-center rounded-lg text-rose-600">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <p>contact@amibagroupe.com</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 glass flex items-center justify-center rounded-lg text-rose-600">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <p>+228 90 00 00 00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl" data-aos="fade-left">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="Nom" class="bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-rose-600 transition">
+                        <input type="email" placeholder="Email" class="bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-rose-600 transition">
+                    </div>
+                    <textarea placeholder="Votre message" rows="4" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-rose-600 transition"></textarea>
+                    <button type="submit" class="w-full py-4 bg-rose-600 text-white font-bold rounded-xl hover:bg-white hover:text-black transition-all">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-white/5 text-center text-gray-500 text-sm">
+        <p>&copy; 2023 AmiBa Groupe. Tous droits réservés. Design by <span class="text-white">AmiBa Tech</span></p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Initialisation des animations au scroll
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Sticky Navbar background change
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'rgba(15, 15, 15, 0.95)';
+                nav.style.padding = '10px 30px';
+            } else {
+                nav.style.backgroundColor = 'transparent';
+                nav.style.padding = '20px 30px';
+            }
+        });
+
+        // Form Submission simple (simulation)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci ! Votre message a bien été envoyé. Nous vous contacterons bientôt.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
