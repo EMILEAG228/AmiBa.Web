@@ -349,23 +349,56 @@
 </head>
 <body>
 
-    <!-- 1. NAVIGATION -->
-    <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center">
-        <div class="text-2xl font-extrabold tracking-tighter">
-            AmiBa<span class="text-rose-600">Groupe</span>
-        </div>
-        <div class="hidden md:flex space-x-8 items-center font-medium uppercase text-sm tracking-widest">
-            <a href="#accueil" class="nav-link">Accueil</a>
-            <a href="#services" class="nav-link">Services</a>
-             <a href="#amiba-chat" class="nav-link">AmiBa Chat</a>
-            <a href="#stats" class="nav-link">STATISTIQUES</a>
-            <a href="#projets" class="nav-link">Projets</a>
-            <a href="#apps-section" class="nav-link">LOGICIELS</a>
-            <a href="#equipe" class="nav-link">Équipe</a>
-            <a href="#contact" class="bg-rose-600 hover:bg-white hover:text-rose-600 transition px-6 py-2 rounded-full text-white">Contact</a>
-        </div>
-    </nav>
+   <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center">
+  <!-- Logo -->
+  <div class="text-2xl font-extrabold tracking-tighter">
+    AmiBa<span class="text-rose-600">Groupe</span>
+  </div>
 
+  <!-- Bouton hamburger (visible sur mobile) -->
+  <button id="menu-btn" class="md:hidden text-rose-600 focus:outline-none">
+    <!-- Icône hamburger -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Menu desktop -->
+  <div class="hidden md:flex space-x-8 items-center font-medium uppercase text-sm tracking-widest">
+    <a href="#accueil" class="nav-link">Accueil</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#amiba-chat" class="nav-link">AmiBa Chat</a>
+    <a href="#stats" class="nav-link">STATISTIQUES</a>
+    <a href="#projets" class="nav-link">Projets</a>
+    <a href="#apps-section" class="nav-link">LOGICIELS</a>
+    <a href="#equipe" class="nav-link">Équipe</a>
+    <a href="#contact"
+      class="bg-rose-600 hover:bg-white hover:text-rose-600 transition px-6 py-2 rounded-full text-white">Contact</a>
+  </div>
+</nav>
+
+<!-- Menu mobile (caché par défaut) -->
+<div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-16 left-0 w-full px-6 py-4 space-y-4 font-medium uppercase text-sm tracking-widest">
+  <a href="#accueil" class="block nav-link">Accueil</a>
+  <a href="#services" class="block nav-link">Services</a>
+  <a href="#amiba-chat" class="block nav-link">AmiBa Chat</a>
+  <a href="#stats" class="block nav-link">STATISTIQUES</a>
+  <a href="#projets" class="block nav-link">Projets</a>
+  <a href="#apps-section" class="block nav-link">LOGICIELS</a>
+  <a href="#equipe" class="block nav-link">Équipe</a>
+  <a href="#contact"
+    class="block bg-rose-600 hover:bg-white hover:text-rose-600 transition px-6 py-2 rounded-full text-white text-center">Contact</a>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
     <!-- 2. SECTION ACCUEIL (HERO) -->
     <section id="accueil" class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Decor -->
