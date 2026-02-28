@@ -175,6 +175,47 @@
   color: #0077cc;
   margin: 0;
 }
+        /* Styles AmiBa Chat */
+#amiba-chat {
+  background: linear-gradient(135deg, #4a90e2, #9013fe);
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.amiba-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#amiba-chat h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+#amiba-chat p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.amiba-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #fff;
+  color: #4a90e2;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.amiba-btn:hover {
+  background-color: #4a90e2;
+  color: #fff;
+  transform: scale(1.05);
+}
     </style>
 </head>
 <body>
@@ -250,6 +291,19 @@
             </div>
         </div>
     </section>
+    <!-- Section AmiBa Chat -->
+<section id="amiba-chat">
+  <div class="amiba-container">
+    <h2>AmiBa Chat</h2>
+    <p>
+      AmiBa Chat est une application moderne de communication qui facilite les échanges
+      rapides et sécurisés. Découvrez ses fonctionnalités et rejoignez la communauté.
+    </p>
+    <a href="https://emileag228.github.io/AmiBa-Informactic/" target="_blank" class="amiba-btn">
+      Visiter le site officiel
+    </a>
+  </div>
+</section>
     <section id="projets">
   <h2>Projets Réalisés</h2>
   <div class="projet">
@@ -451,6 +505,13 @@ document.addEventListener("DOMContentLoaded", () => {
     logo.style.opacity = 1;
     logo.style.transform = "translateX(0)";
   }, 300);
+});
+// JS pour effet interactif (optionnel)
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.querySelector(".amiba-btn");
+  btn.addEventListener("click", () => {
+    alert("Vous allez être redirigé vers le site officiel d'AmiBa Chat !");
+  });
 });
     </script>
 </body>
