@@ -345,6 +345,46 @@
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
 }
+.info-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background: #f5f5f5;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: row;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.info-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.info-content {
+  padding: 20px;
+  flex: 1;
+}
+
+.info-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.info-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
     </style>
 </head>
 <body>
@@ -363,6 +403,7 @@
     <a href="#stats" class="nav-link">STATISTIQUES</a>
     <a href="#projets" class="nav-link">Projets</a>
     <a href="#apps-section" class="nav-link">LOGICIELS</a>
+    <a href="#info-section" class="nav-link">INFORMATIONS</a>
     <a href="#equipe" class="nav-link">Équipe</a>
     <a href="#contact"
       class="bg-rose-600 hover:bg-white hover:text-rose-600 transition px-6 py-2 rounded-full text-white">Contact</a>
@@ -526,6 +567,22 @@
       <p>Une matrice est un tableau rectangulaire de nombres, symboles ou expressions, organisés en 
  lignes et colonnes, utilisé pour représenter des données ou des transformations linéaires.</p>
       <a href="matrice.rar" class="download-btn">Télécharger</a>
+    </div>
+  </div>
+</section>
+    <!-- 5. SECTION INFORMATIONS -->
+<section class="info-section">
+  <div class="info-card">
+    <div class="info-image">
+      <img src="zarus" alt="Illustration Information 1">
+    </div>
+    <div class="info-content">
+      <h2 class="info-title">Collaboration avec ZARUS</h2>
+      <p class="info-description">
+Nous avons le plaisir de vous informer de notre nouvelle collaboration avec AMEHOENOU Florent, au sein de AmiBa Groupe, pour un poste spécialisé en Design et Électronique.
+Cette alliance marque une étape importante dans notre volonté de conjuguer créativité et expertise technique, afin de développer des solutions innovantes et performantes. Ensemble, nous aspirons à bâtir des projets qui allient esthétique, fonctionnalité et excellence technologique.
+Bienvenue à Florent dans cette aventure avec AmiBa Groupe .
+      </p>
     </div>
   </div>
 </section>
@@ -742,6 +799,48 @@ const menuBtn = document.getElementById('menu-btn');
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
   });
+<section class="info-section">
+  <div class="info-card">
+    <div class="info-image">
+      <img src="https://via.placeholder.com/400x250" alt="Illustration Information 1">
+    </div>
+    <div class="info-content">
+      <h2 class="info-title">Information 1</h2>
+      <p class="info-description">
+        Voici une description claire et élégante pour présenter ton contenu. 
+        Tu peux y mettre un texte accrocheur qui explique brièvement le sujet 
+        ou l’importance de cette information.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animation au scroll : apparition progressive
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".info-card");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  });
+
+  // Effet interactif au survol
+  const card = document.querySelector(".info-card");
+  card.addEventListener("mouseenter", () => {
+    card.style.transform = "scale(1.03)";
+    card.style.transition = "transform 0.3s ease";
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "scale(1)";
+  });
+</script>
     </script>
 </body>
 </html>
